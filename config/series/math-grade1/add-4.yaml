@@ -1,0 +1,20 @@
+sampleTex: 35+1=36
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1; Add .a1 .a0
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 10
+              max: 98
+            - var: a1
+              min: 1
+              max: 1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; add .a1 1; add .a1 -1; add .a0 2; 10; 20

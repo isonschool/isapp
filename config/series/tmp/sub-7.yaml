@@ -1,0 +1,36 @@
+skey: sub-7
+pkey: p028
+sname: "{Subtraction} 8"
+sampleTex: 7-2-1=4
+maxWidth:
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: 5
+              max: 19
+            - var: a1
+              min: max -9 (add 1 (mul -1 .a0))
+              max: -1
+            - var: a2
+              min: max -9 (add 1 (mul -1 (add .a0 .a1))
+              max: -1
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add 1 .a2; add -1 .a2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: add .b0 10; add .b0 1; .b1; add .b0 .b1 1; .b0; add .b0 .b1 10

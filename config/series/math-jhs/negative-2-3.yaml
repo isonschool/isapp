@@ -1,0 +1,33 @@
+sampleTex: '\frac{2}{3} \times (-\frac{3}{4}) = -\frac{1}{2}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Frac .a0 .a1) (Frac .a2 .a3)
+          calcs: mul (div .a0 .a1) (div .a2 .a3)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Frac .b0 .b1
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a0 .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0 .a2; mul -1 .a1 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1; 1; 2; 3
+            - var: b1
+              cal: mul .a1 .a3
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0 .a2; mul -1 .a1 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1; 1; 2; 3

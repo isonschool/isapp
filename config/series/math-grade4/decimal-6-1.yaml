@@ -1,0 +1,40 @@
+sampleTex: '0.3 + 0.4 \div 2 = 0.5'
+mth:
+  generators:
+    z:
+      expressions:
+        # .a0(=.h0*.h1) + (.a1(=.h2*.a2*.h1) / .a2)
+        - template: Add .a0 (Div .a1 .a2); Add (Div .a1 .a2) .a0
+          calcs: add .a0 (div .a1 .a2)
+          assertion: '== (add .a0 (div .a1 .a2)) (add (mul .h0 .h1) (div (mul .h2 .a2 .h1) .a2))'
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: h1
+              choices: 0.1; 0.01
+            - var: h2
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .h0 .h1
+            - var: a2
+              min: 1
+              max: 9
+            - var: a1
+              cal: mul .h2 .a2 .h1
+        - template: Add .b0 .b1; Add .b1 .b0
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .h0; .h1; .h2; .a1; .a0; .a2; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 0.1; mul .a1 .a2; mul 10 .a1 .a2
+            - var: b1
+              cal: div .a1 .a2
+              wrongCals: .h0; .h1; .h2; .a1; .a0; .a2; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 0.1; mul .a1 .a2; mul 10 .a1 .a2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; mul .b0 .b1; add .b0 .b1; add (mul 10 .b0) .b1; add .b0 (mul 10 .b1); 1; 2; 3

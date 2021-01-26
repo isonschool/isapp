@@ -1,0 +1,100 @@
+sampleTex: '5 (2x - 4) = 10x - 20'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Mul .a0 (Add (Mul .a1 'x') .a2); Times (Add (Mul .a1 'x') .a2) .a0
+          calcs: mul .a0 .a1; mul .a0 .a2
+          constraints:
+            - var: a0
+              min: -15
+              max: 15
+              excepts: 0
+            - var: a1
+              min: -15
+              max: 15
+              excepts: 0
+            - var: a2
+              min: -15
+              max: 15
+              excepts: 0
+        - template: Add (Times .b0 .b1 'x') (Times .b3 .b2); Add (Times .b1 .b0 'x') (Times .b2 .b3)
+          calcs: mul .b0 .b1; mul .b3 .b2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+            - var: b3
+              cal: .a0
+              excepts: 0
+        - template: Add (Mul .c0 'x') .c1
+          calcs: .c0; .c1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+            - var: c1
+              cal: mul .b3 .b2
+    w:
+      expressions:
+        - template: Mul (Frac .a0 .a1) (Add (Mul .a2 'x') .a3); Times (Add (Mul .a2 'x') .a3) (Frac .a0 .a1)
+          calcs: mul (div .a0 .a1) .a2; mul (div .a0 .a1) .a3
+          constraints:
+            - var: a0
+              min: -15
+              max: 15
+              excepts: 0
+            - var: a1
+              min: -15
+              max: 15
+              excepts: 0
+              pred: '== 1 (gcd .a0 .this)'
+            - var: a2
+              min: -15
+              max: 15
+              excepts: 0
+            - var: a3
+              min: -15
+              max: 15
+              excepts: 0
+        - template: Add (Times (Frac .b0 .b1) .b2 'x') (Times (Frac .b4 .b5) .b3); Add (Times .b2 (Frac .b0 .b1) 'x') (Times .b3 (Frac .b4 .b5))
+          calcs: mul (div .b0 .b1) .b2; mul (div .b4 .b5) .b3
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+            - var: b3
+              cal: .a3
+              excepts: 0
+            - var: b4
+              cal: .a0
+              excepts: 0
+            - var: b5
+              cal: .a1
+              excepts: 0
+        - template: Add (Mul (Frac .c0 .c1) 'x') (Frac .c2 .c3)
+          calcs: div .c0 .c1; div .c2 .c3
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+            - var: c1
+              cal: .b1
+            - var: c2
+              cal: mul .b4 .b3
+            - var: c3
+              cal: .b5

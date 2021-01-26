@@ -1,0 +1,85 @@
+sampleTex: '-2 \div (-5) \times (-10) = -4'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Div .a0 .a1) .a2; Div (Times .a0 .a2) .a1
+          calcs: mul (div .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Frac (Times .b1 .b2) .b3)
+          calcs: div (mul .b0 .b1 .b2) .b3
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1 .a2)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b2
+              cal: abs .a2
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b3
+              cal: abs .a1
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+        - template: Frac .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2
+              wrongCals: mul -1 .b0 .b1 .b2 .b3; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+            - var: c1
+              cal: .b3
+              wrongCals: mul -1 .b0 .b1 .b2 .b3; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+    w:
+      expressions:
+        - template: Div (Div .a0 .a1) .a2
+          calcs: div (div .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Frac .b1 (Times .b2 .b3))
+          calcs: div (mul .b0 .b1) (mul .b2 .b3)
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1 .a2)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b2
+              cal: abs .a1
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b3
+              cal: abs .a2
+              wrongCals: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+        - template: Frac .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+              wrongCals: mul -1 .b0 .b1 .b2 .b3; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+            - var: c1
+              cal: mul .b2 .b3
+              wrongCals: mul -1 .b0 .b1 .b2 .b3; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10

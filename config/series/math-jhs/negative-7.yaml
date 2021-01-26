@@ -1,0 +1,95 @@
+sampleTex: '-5 + 2 \times (-2)^{2} = 3'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 (Times .a1 (Pow .a2 .a3)); Add (Times .a1 (Pow .a2 .a3)) .a0; Add .a0 (Times (Pow .a2 .a3) .a1); Add (Times (Pow .a2 .a3) .a1) .a0
+          calcs: add .a0 (mul .a1 (pow .a2 .a3))
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+            - var: a3
+              choices: 1;2;3
+        - template: Add .b0 (Times .b1 .b2); Add (Times .b1 .b2) .b0; Add .b0 (Times .b2 .b1); Add (Times .b2 .b1) .b0
+          calcs: add .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+            - var: b1
+              cal: .a1
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+            - var: b2
+              cal: pow .a2 .a3
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+        - template: Add .c0 .c1; Add .c1 .c0; Add .c0 .c1; Add .c1 .c0
+          calcs: add .c0 .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+            - var: c1
+              cal: mul .b1 .b2
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+        - template: .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: add .c0 .c1
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .c0 .c1; .c0; .c1; sub .c0 .c1; sub .c1 .c0; mul .c0 .c1
+    w:
+      expressions:
+        - template: Sub .a0 (Times .a1 (Pow .a2 .a3)); Sub .a0 (Times (Pow .a2 .a3) .a1)
+          calcs: sub .a0 (mul .a1 (pow .a2 .a3))
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+            - var: a3
+              choices: 1;2;3
+        - template: Sub .b0 (Times .b1 .b2); Sub .b0 (Times .b2 .b1)
+          calcs: sub .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+            - var: b1
+              cal: .a1
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+            - var: b2
+              cal: pow .a2 .a3
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; add .a1 .a2; mul -1 .a2; mul -1 (add .a1 .a2)
+        - template: Add .c0 .c1
+          calcs: add .c0 .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+            - var: c1
+              cal: mul -1 .b1 .b2
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+        - template: .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: add .c0 .c1
+              wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; -1; mul -1 .c0 .c1; .c0; .c1; sub .c0 .c1; sub .c1 .c0; mul .c0 .c1

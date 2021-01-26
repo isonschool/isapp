@@ -1,0 +1,74 @@
+sampleTex: 'x + 2x = 3x'
+maxWidth: 150
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Mul .a0 'x') (Mul .a1 'x'); Add (Mul .a0 'y') (Mul .a1 'y'); Add (Mul .a0 'z') (Mul .a1 'z'); Add (Mul .a0 'a') (Mul .a1 'a'); Add (Mul .a0 'b') (Mul .a1 'b'); Add (Mul .a0 'c') (Mul .a1 'c')
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Mul (Add .b0 .b1) 'x'; Mul (Add .b0 .b1) 'y'; Mul (Add .b0 .b1) 'z'; Mul (Add .b0 .b1) 'a'; Mul (Add .b0 .b1) 'b'; Mul (Add .b0 .b1) 'c'
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+        - template: Mul .c0 'x'; Mul .c0 'y'; Mul .c0 'z'; Mul .c0 'a'; Mul .c0 'b'; Mul .c0 'c'
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+    w:
+      expressions:
+        - template: Add (Mul .a0 'x^2') (Mul .a1 'x^2')
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Mul (Add .b0 .b1) 'x^2'
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+        - template: Mul .c0 'x^2'
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: 1; -1; mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+    z':
+      expressions:
+        - constraints:
+            - var: a0
+              choices: 1;-1
+            - var: a1
+              choices: 1;-1
+    w':
+      expressions:
+        - constraints:
+            - var: a0
+              choices: 1;-1
+            - var: a1
+              choices: 1;-1

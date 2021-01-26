@@ -1,0 +1,17 @@
+sampleTex: 10+10+10=30
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (* .a0 10)
+          calcs: mul .a0 10
+          constraints:
+            - var: a0
+              min: 2
+              max: 8
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: mul .a0 10
+              wrongCals: add 10 (mul .a0 10); add -10 (mul .a0 10); add 20 (mul .a0 10); 10; 20; .a0; mul 5 .a0; add 1 .a0

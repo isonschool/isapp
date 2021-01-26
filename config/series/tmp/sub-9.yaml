@@ -1,0 +1,65 @@
+skey: sub-9
+pkey: p028
+sname: "{Subtraction} 10"
+sampleTex: 7-(2+1)=4
+maxWidth:
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub .a0 (Add .a1 .a2)
+          calcs: sub .a0 (add .a1 .a2)
+          constraints:
+            - var: a0
+              min: 5
+              max: 19
+            - var: a1
+              min: 1
+              max: sub .a0 2
+            - var: a2
+              min: 1
+              max: sub .a0 .a1
+        - template: Sub .b0 .b1
+          calcs: sub .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add 1 .a0; add -1 .a0; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1
+            - var: b1
+              cal: add .a1 .a2
+              wrongCals: .a0; .a1; .a2; add 1 .a2; add -1 .a2; add 1 .a1 .a2; add -1 .a1 .a2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: sub .b0 .b1
+              wrongCals: add .b0 10; add .b0 1; .b1; add .b0 .b1 1; .b0; add .b0 .b1 10; sub .b0 .b1 1
+    w:
+      expressions:
+        - template: Sub .a0 (Sub .a1 .a2)
+          calcs: sub .a0 (sub .a1 .a2)
+          constraints:
+            - var: a0
+              min: 5
+              max: 19
+            - var: a1
+              min: 1
+              max: sub .a0 2
+            - var: a2
+              min: 1
+              max: sub .a0 .a1
+        - template: Sub .b0 .b1
+          calcs: sub .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add 1 .a0; add -1 .a0; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1
+            - var: b1
+              cal: sub .a1 .a2
+              wrongCals: add .a1 .a2; .a0; .a1; .a2; add 1 .a2; add -1 .a2; add 1 .a1 .a2; add -1 .a1 .a2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: sub .b0 .b1
+              wrongCals: add .b0 10; add .b0 1; .b1; add .b0 .b1 1; .b0; add .b0 .b1 10; sub .b0 .b1 1

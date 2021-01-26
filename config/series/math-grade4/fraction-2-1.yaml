@@ -1,0 +1,53 @@
+sampleTex: '3 + \frac{1}{2} = \frac{7}{2}'
+maxWidth: 84
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a2 (Frac .a0 .a1); Add (Frac .a0 .a1) .a2
+          calcs: add .a2 (div .a0 .a1)
+          constraints:
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: add .a0 1
+              max: 10
+        - template: Frac .b0 .b1
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: add (mul .a2 .a1) .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; 2; 3; 5
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; 2; 3; 5
+    w:
+      expressions:
+        - template: Frac (add (mul .a2 .a1) .a0) .a1
+          calcs: div (add (mul .a2 .a1) .a0) .a1
+          constraints:
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: add .a0 1
+              max: 10
+        - template: Frac (Add (Times .b2 .b1) .b0) .b1
+          calcs: div (add (mul .b2 .b1) .b0) .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a0 .a1; mul .a0 .a1; mul .a0 .a2; mul .a1 .a2; 1; 2; 3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a0 .a1; mul .a0 .a1; mul .a0 .a2; mul .a1 .a2; 1; 2; 3
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a0 .a1; mul .a0 .a1; mul .a0 .a2; mul .a1 .a2; 1; 2; 3

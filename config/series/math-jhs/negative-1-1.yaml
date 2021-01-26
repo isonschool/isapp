@@ -1,0 +1,61 @@
+sampleTex: '0 - 2 - 3 = -5'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add .a0 .a1; mul -1 (add .a0 .a1); sub .a0 .a1; sub .a1 .a0; add .a0 .a1 -1
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add .a0 .a1; mul -1 (add .a0 .a1); sub .a0 .a1; sub .a1 .a0; add .a0 .a1 -1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 -1; mul .b0 .b1; mul -1 (add .b0 .b1); sub .b0 .b1; sub .b1 .b0; 1; 2; -1
+    w:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add .a0 .a1; mul -1 (add .a0 .a1); sub .a0 .a1; sub .a1 .a0; add .a0 .a1 -1
+            - var: b1
+              cal: add .a1 .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add .a0 .a1; mul -1 (add .a0 .a1); sub .a0 .a1; sub .a1 .a0; add .a0 .a1 -1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 -1; mul .b0 .b1; mul -1 (add .b0 .b1); sub .b0 .b1; sub .b1 .b0; 1; 2; -1

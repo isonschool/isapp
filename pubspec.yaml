@@ -1,0 +1,183 @@
+name: isapp
+description: IsonSchool Math probject.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  provider: ^4.2.0
+  shared_preferences: ^0.5.8
+  http: ^0.12.2
+  cupertino_icons: ^0.1.3
+  audioplayers: ^0.15.1
+  yaml: ^2.2.1
+  mdi: ^4.0.0
+  url_launcher: ^5.7.10
+  flutter_math: ^0.2.1
+
+dev_dependencies:
+  test:
+  mockito:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/res/ic_launcher192.png"
+
+flutter:
+  generate: true
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/pupils/p001.png
+    - assets/pupils/p002.png
+    - assets/pupils/p003.png
+    - assets/pupils/p004.png
+    - assets/pupils/p005.png
+    - assets/pupils/p006.png
+    - assets/pupils/p007.png
+    - assets/pupils/p008.png
+    - assets/pupils/p009.png
+    - assets/pupils/p010.png
+    - assets/pupils/p011.png
+    - assets/pupils/p012.png
+    - assets/pupils/p013.png
+    - assets/pupils/p014.png
+    - assets/pupils/p015.png
+    - assets/pupils/p016.png
+    - assets/pupils/p017.png
+    - assets/pupils/p018.png
+    - assets/pupils/p019.png
+    - assets/pupils/p020.png
+    - assets/pupils/p021.png
+    - assets/pupils/p022.png
+    - assets/pupils/p023.png
+    - assets/pupils/p024.png
+    - assets/pupils/p025.png
+    - assets/pupils/p026.png
+    - assets/pupils/p027.png
+    - assets/pupils/p028.png
+    - assets/pupils/p029.png
+    - assets/pupils/p030.png
+    - assets/pupils/p031.png
+    - assets/pupils/p032.png
+    - assets/pupils/p033.png
+    - assets/pupils/p034.png
+    - assets/pupils/p035.png
+    - assets/pupils/p036.png
+    - assets/pupils/p037.png
+    - assets/pupils/p038.png
+    - assets/pupils/p039.png
+    - assets/pupils/p040.png
+    - assets/pupils/p041.png
+    - assets/pupils/p042.png
+    - assets/pupils/p043.png
+    - assets/pupils/p044.png
+    - assets/pupils/p045.png
+    - assets/pupils/p046.png
+    - assets/pupils/p047.png
+    - assets/pupils/p048.png
+    - assets/pupils/p049.png
+    - assets/pupils/p050.png
+    - assets/pupils/p051.png
+    - assets/pupils/p052.png
+    - assets/pupils/p053.png
+    - assets/pupils/p054.png
+    - assets/pupils/p055.png
+    - assets/pupils/p056.png
+    - assets/pupils/p057.png
+    - assets/pupils/p058.png
+    - assets/pupils/p059.png
+    - assets/pupils/p060.png
+    - assets/pupils/p061.png
+    - assets/pupils/p062.png
+    - assets/pupils/p063.png
+    - assets/pupils/p064.png
+    - assets/pupils/p065.png
+    - assets/pupils/p066.png
+    - assets/pupils/p067.png
+    - assets/pupils/p068.png
+    - assets/pupils/p069.png
+    - assets/pupils/p070.png
+    - assets/pupils/p071.png
+    - assets/pupils/p072.png
+    - assets/pupils/p073.png
+    - assets/pupils/p074.png
+    - assets/pupils/p075.png
+    - assets/pupils/p076.png
+    - assets/pupils/p077.png
+    - assets/pupils/p078.png
+    - assets/pupils/p079.png
+    - assets/pupils/p080.png
+    - assets/pupils/p081.png
+    - assets/pupils/p082.png
+    - assets/pupils/p083.png
+    - assets/pupils/p084.png
+    - assets/pupils/p085.png
+    - assets/pupils/p086.png
+    - assets/pupils/p087.png
+    - assets/pupils/p088.png
+    - assets/pupils/p089.png
+    - assets/pupils/p090.png
+    - assets/pupils/p091.png
+    - assets/pupils/p092.png
+    - assets/pupils/p093.png
+    - assets/pupils/p094.png
+    - assets/pupils/p095.png
+    - assets/pupils/p096.png
+    - assets/pupils/p097.png
+    - assets/pupils/p098.png
+    - assets/pupils/p099.png
+    - assets/pupils/p100.png
+    - assets/pupils/p101.png
+    - assets/pupils/p102.png
+    - assets/pupils/p103.png
+    - assets/pupils/p104.png
+    - assets/pupils/p105.png
+    - assets/pupils/p106.png
+    - assets/pupils/p107.png
+    - assets/pupils/p108.png
+    - assets/pupils/p109.png
+    - assets/pupils/p110.png
+    - assets/pupils/p111.png
+    - assets/pupils/p112.png
+    - assets/pupils/p113.png
+    - assets/pupils/p114.png
+    - assets/pupils/p115.png
+    - assets/pupils/p116.png
+    - assets/pupils/p117.png
+    - assets/pupils/p118.png
+    - assets/pupils/p119.png
+    - assets/pupils/p120.png
+    - assets/pupils/p121.png
+    - assets/pupils/p122.png
+    - assets/pupils/p123.png
+    - assets/pupils/p124.png
+    - assets/pupils/p125.png
+    - assets/pupils/p126.png
+    - assets/pupils/p127.png
+    - assets/pupils/p128.png
+    - assets/pupils/p129.png
+    - assets/pupils/p130.png
+    - assets/pupils/p131.png
+    - assets/sounds/correct_sound.mp3
+    - assets/sounds/wrong_sound.mp3
+    - assets/sounds/success_sound.mp3
+    - assets/sounds/success_diploma_sound.mp3
+
+  fonts:
+   - family: IsonSchoolIcons
+     fonts:
+      - asset: assets/fonts/IsonSchoolIcons.ttf

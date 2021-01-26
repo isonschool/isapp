@@ -1,0 +1,268 @@
+sampleTex: '\frac{x}{y} | _{x = \frac{1}{2}, y = \frac{2}{3}} = \frac{3}{4}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Restrict (Frac (Mul .a0 'x') (Mul .a1 'y')) (And (Equal 'x' (Frac .a2 .a3)) (Equal 'y' (Frac .a4 .a5)))
+          calcs: div (mul .a0 (div .a2 .a3)) (mul .a1 (div .a4 .a5))
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a3
+              min: -5
+              max: 5
+              excepts: 0;1;-1
+              pred: '_|_ .a2 .this'
+            - var: a4
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a5
+              min: -5
+              max: 5
+              excepts: 0;1;-1
+              pred: '_|_ .a4 .this'
+        - template: Restrict (Div (Mul .b0 'x') (Mul .b1 'y')) (And (Equal 'x' (Frac .b2 .b3)) (Equal 'y' (Frac .b4 .b5)))
+          calcs: div (mul .b0 (div .b2 .b3)) (mul .b1 (div .b4 .b5))
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              wrongCals: ''
+            - var: b3
+              cal: .a3
+              wrongCals: ''
+            - var: b4
+              cal: .a4
+              wrongCals: ''
+            - var: b5
+              cal: .a5
+              wrongCals: ''
+        - template: Div (Times .c0 (Frac .c2 .c3)) (Times .c1 (Frac .c4 .c5))
+          calcs: div (mul .c0 (div .c2 .c3)) (mul .c1 (div .c4 .c5))
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b3
+              excepts: 0
+            - var: c4
+              cal: .b4
+              excepts: 0
+            - var: c5
+              cal: .b5
+              excepts: 0
+        - template: Div (Frac .d0 .d1) (Frac .d2 .d3)
+          calcs: div (div .d0 .d1) (div .d2 .d3)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: mul .c0 .c2
+              excepts: 0
+            - var: d1
+              cal: .c3
+              excepts: 0
+            - var: d2
+              cal: mul .c1 .c4
+              excepts: 0
+            - var: d3
+              cal: .c5
+              excepts: 0
+        - template: Times (Frac .e0 .e1) (Frac .e3 .e2)
+          calcs: mul (div .e0 .e1) (div .e3 .e2)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: e0
+              cal: .d0
+              excepts: 0
+            - var: e1
+              cal: .d1
+              excepts: 0
+            - var: e2
+              cal: .d2
+              excepts: 0
+            - var: e3
+              cal: .d3
+              excepts: 0
+        - template: Frac .f0 .f1
+          calcs: div .f0 .f1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: f0
+              cal: mul .e0 .e3
+              excepts: 0
+            - var: f1
+              cal: mul .e1 .e2
+              excepts: 0
+    zz:
+      expressions:
+        - template: Restrict (Frac (Mul .a0 'x') (Mul .a1 'y')) (And (Equal 'x' (Frac .a2 .a3)) (Equal 'y' (Frac .a4 .a5)))
+          calcs: div (mul .a0 (div .a2 .a3)) (mul .a1 (div .a4 .a5))
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a3
+              min: -5
+              max: 5
+              excepts: 0;1;-1
+              pred: '_|_ .a2 .this'
+            - var: a4
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a5
+              min: -5
+              max: 5
+              excepts: 0;1;-1
+              pred: '_|_ .a4 .this'
+        - template: Frac (Times .b0 (Frac .b2 .b3)) (Times .b1 (Frac .b4 .b5))
+          calcs: div (mul .b0 (div .b2 .b3)) (mul .b1 (div .b4 .b5))
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+            - var: b3
+              cal: .a3
+              excepts: 0
+            - var: b4
+              cal: .a4
+              excepts: 0
+            - var: b5
+              cal: .a5
+              excepts: 0
+        - template: Frac (Frac .c0 .c1) (Frac .c2 .c3)
+          calcs: div (div .c0 .c1) (div .c2 .c3)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+              excepts: 0
+            - var: c1
+              cal: .b3
+              excepts: 0
+            - var: c2
+              cal: mul .b1 .b4
+              excepts: 0
+            - var: c3
+              cal: .b5
+              excepts: 0
+        - template: Frac (Times (Frac .d0 .d1) .d4) (Times (Frac .d2 .d3) .d4)
+          calcs: div (mul (div .d0 .d1) .d4) (mul (div .d2 .d3) .d4)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: .c0
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+            - var: d3
+              cal: .c3
+              excepts: 0
+            - var: d4
+              cal: lcm .c1 .c3
+              wrongCals: ''
+        - template: Frac .e0 .e1
+          calcs: div .e0 .e1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: e0
+              cal: mul (div .d0 .d1) .d4
+              excepts: 0
+            - var: e1
+              cal: mul (div .d2 .d3) .d4
+              excepts: 0
+    z':
+      expressions:
+        - constraints:
+            - var: a0
+              choices: 1
+            - var: a1
+              choices: 1
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+              pred: '_|_ .a2 .this'
+            - var: a4
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a5
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+              pred: '_|_ .a4 .this'
+    zz':
+      expressions:
+        - constraints:
+            - var: a0
+              choices: 1
+            - var: a1
+              choices: 1
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+              pred: '_|_ .a2 .this'
+            - var: a4
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a5
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+              pred: '_|_ .a4 .this'

@@ -1,0 +1,97 @@
+- prefix: negative
+  name: '{Negative numbers}'
+  suffix:
+    - 1
+    - 1-1
+    - 2
+    - 2-1
+    - 2-2
+    - 2-3
+    - 2-4
+    - 2-5
+    - 2-6
+    - 2-7
+    - 2-8
+    - 3
+    - 3-1
+    - 3-2
+    - 3-3
+    - 4
+    - 4-1
+    - 4-2
+    - 4-3
+    - 4-4
+    - 5
+    - 5-1
+    - 5-2
+    - 5-3
+    - 5-4
+    - 6
+    - 6-1
+    - 7
+- prefix: compound-fraction
+  name: '{Compound fraction}'
+  suffix:
+    - 1
+    - 2
+    - 3
+- prefix: algebraic-expression
+  name: '{Algebraic expression}'
+  suffix:
+    - 0
+    - 0-1
+    - 0-2
+    - 0-3
+    - 1
+    - 1-1
+    - 2
+    - 2-1
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 7-1
+    - 8
+    - 9
+    - 10
+    - 10-1
+- prefix: equation
+  name: '{Equation}'
+  suffix:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+- prefix: expansion-basic
+  name: '{Expansion}'
+  suffix:
+    - 1
+    - 2
+    - 3
+    - 4
+- prefix: simultaneous-equations
+  name: '{Simultaneous Equations}'
+  suffix:
+    - 1
+    - 2
+- prefix: function
+  name: '{Function}'
+  suffix:
+    - 1
+    - 2
+    - 2-1
+    - 3
+- prefix: sqrt
+  name: '{Square root}'
+  suffix:
+    - 1
+    - 2
+    - 3
+

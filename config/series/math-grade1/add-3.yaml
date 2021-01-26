@@ -1,0 +1,20 @@
+sampleTex: 3+2=5
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: sub 10 .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: add .a0 .a1 1; add .a0 .a1 -1; 1;2;3;4;5;6;7;8;9;10

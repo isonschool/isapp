@@ -1,0 +1,52 @@
+sampleTex: 2+7=7+2
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 10
+            - var: a1
+              min: 1
+              max: 10
+              excepts: .a0
+        - template: Add .b1 .b0
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+    w:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 10
+            - var: a1
+              min: 1
+              max: 10
+              excepts: .a0
+            - var: a2
+              min: 1
+              max: 10
+              excepts: .a0; .a1
+        - template: Add .b1 .b0 .b2; Add .b0 .b2 .b1; Add .b1 .b2 .b0; Add .b2 .b0 .b1; Add .b2 .b1 .b0
+          calcs: add .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10

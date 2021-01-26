@@ -1,0 +1,17 @@
+sampleTex: 1+1+1=3
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (* .a0 1)
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 2
+              max: 8
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add 1 .a0; add -1 .a0; add 2 .a0; 1

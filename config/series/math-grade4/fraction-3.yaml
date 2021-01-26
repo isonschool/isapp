@@ -1,0 +1,29 @@
+sampleTex: '\frac{1}{10} = 0.1'
+maxWidth: 122
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Frac .a0 .a1
+          calcs: divf .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              choices: 10;100
+        - template: Div .b0 .b1
+          calcs: divf .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; add .a0 .a1; 1; 2; 4; 5; 10; 100
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: divf .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1; add 1 (divf .b0 .b1); divf .b0 10; divf .b0 100

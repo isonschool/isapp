@@ -1,0 +1,45 @@
+sampleTex: '\frac{2x+2}{4} = \frac{x+1}{2}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Frac (Add (Mul .a0 'x') .a1) .a2
+          calcs: div .a0 .a2; div .a1 .a2
+          constraints:
+            - var: a0
+              min: -8
+              max: 8
+              excepts: 0;1;-1
+            - var: a1
+              min: -8
+              max: 8
+              excepts: 0;1;-1
+              pred: '! (_|_ .a0 .this)'
+            - var: a2
+              min: -20
+              max: 20
+              excepts: 0;1;-1
+              pred: '! (_|_ .a0 .a1 .this)'
+        - template: Frac (Div (Add (Mul .b0 'x') .b1) .b3) (Div .b2 .b3)
+          calcs: div (div .b0 .b3) (div .b2 .b3); div (div .b1 .b3) (div .b2 .b3)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+            - var: b3
+              cal: gcd .a0 .a1 .a2
+              wrongCals: ''
+        - template: Frac (Add (Mul .c0 'x') .c1) .c2
+          calcs: div .c0 .c2; div .c1 .c2
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: c0
+              cal: div .b0 .b3
+            - var: c1
+              cal: div .b1 .b3
+            - var: c2
+              cal: div .b2 .b3

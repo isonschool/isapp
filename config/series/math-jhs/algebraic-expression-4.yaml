@@ -1,0 +1,207 @@
+sampleTex: 'x + 3y + 5x - y = 6x + 2y'
+maxWidth: 367
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Mul .a0 'x') (Mul .a1 'y') (Mul .a2 'x') (Mul .a3 'y')
+          calcs: add .a0 .a2; add .a1 .a3
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Add (Mul .t0 'x') (Mul .t2 'x') (Mul .t1 'y') (Mul .t3 'y')
+          calcs: add .t0 .t2; add .t1 .t3
+          constraints:
+            - var: t0
+              cal: .a0
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t1
+              cal: .a1
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t2
+              cal: .a2
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t3
+              cal: .a3
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+        - template: Add (Mul (Add .b0 .b2) 'x') (Mul (Add .b1 .b3) 'y')
+          calcs: add .b0 .b2; add .b1 .b3
+          constraints:
+            - var: b0
+              cal: .t0
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b1
+              cal: .t1
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b2
+              cal: .t2
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b3
+              cal: .t3
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+        - template: Add (Mul .c0 'x') (Mul .c1 'y')
+          calcs: .c0; .c1
+          constraints:
+            - var: c0
+              cal: add .b0 .b2
+              wrongCals: 1; -1; mul -1 (add .b0 .b2); mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+            - var: c1
+              cal: add .b1 .b3
+              wrongCals: 1; -1; mul -1 (add .b1 .b3); mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+    w:
+      expressions:
+        - template: Add (Mul .a0 'x') .a1 (Mul .a2 'x') .a3
+          calcs: add .a0 .a2; add .a1 .a3
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Add (Mul .t0 'x') (Mul .t2 'x') .t1 .t3
+          calcs: add .t0 .t2; add .t1 .t3
+          constraints:
+            - var: t0
+              cal: .a0
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t1
+              cal: .a1
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t2
+              cal: .a2
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+            - var: t3
+              cal: .a3
+              wrongCals: 1; -1; mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1; .a2; .a3
+        - template: Add (Mul (Add .b0 .b2) 'x') (Add .b1 .b3)
+          calcs: add .b0 .b2; add .b1 .b3
+          constraints:
+            - var: b0
+              cal: .t0
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b1
+              cal: .t1
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b2
+              cal: .t2
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+            - var: b3
+              cal: .t3
+              wrongCals: 1; -1; mul -1 .t0; add .t1 .t0; .t1; mul -1 .t1; mul -1 .t0 .t1; add 1 .t0; add -1 .t0; add 2 .t0; add -2 .t0; add 1 .t1; add -1 .t1; add 2 .t1; add -2 .t1; .t2; .t3
+        - template: Add (Mul .c0 'x') .c1
+          calcs: .c0; .c1
+          constraints:
+            - var: c0
+              cal: add .b0 .b2
+              wrongCals: 1; -1; mul -1 (add .b0 .b2); mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+            - var: c1
+              cal: add .b1 .b3
+              wrongCals: 1; -1; mul -1 (add .b1 .b3); mul -1 .b0 .b1; .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1
+    u:
+      expressions:
+        - template: Add (Mul .a0 'x^2') (Mul .a1 'x') .a2 (Mul .a3 'x^2') (Mul .a4 'x') .a5
+          calcs: add .a0 .a3; add .a1 .a4; add .a2 .a5
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a4
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a5
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Add (Mul .t0 'x^2') (Mul .t3 'x^2') (Mul .t1 'x') (Mul .t4 'x') .t2 .t5
+          calcs: add .t0 .t3; add .t1 .t4; add .t2 .t5
+          constraints:
+            - var: t0
+              cal: .a0
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+            - var: t1
+              cal: .a1
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+            - var: t2
+              cal: .a2
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+            - var: t3
+              cal: .a3
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+            - var: t4
+              cal: .a4
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+            - var: t5
+              cal: .a5
+              wrongCals: 1; -1; mul -1 .a0; .a1; .a2; .a3; .a4; .a5; 2; -2; mul -1 .a1; mul -1 .a2; mul -1 .a3; mul -1 .a4; mul -1 .a5
+        - template: Add (Mul (Add .b0 .b3) 'x^2') (Mul (Add .b1 .b4) 'x') (Add .b2 .b5)
+          calcs: add .b0 .b3; add .b1 .b4; add .b2 .b5
+          constraints:
+            - var: b0
+              cal: .t0
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+            - var: b1
+              cal: .t1
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+            - var: b2
+              cal: .t2
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+            - var: b3
+              cal: .t3
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+            - var: b4
+              cal: .t4
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+            - var: b5
+              cal: .t5
+              wrongCals: 1; -1; mul -1 .t0; .t1; .t2; .t3; .t4; .t5; 2; -2; mul -1 .t1; mul -1 .t2; mul -1 .t3; mul -1 .t4; mul -1 .t5
+        - template: Add (Mul .c0 'x^2') (Mul .c1 'x') .c2
+          calcs: .c0; .c1; .c2
+          constraints:
+            - var: c0
+              cal: add .b0 .b3
+              wrongCals: 1; -1; mul -1 (add .b0 .b3); add .b0 .b4; add .b0 .b5; add .b3 .b1; add .b3 .b2; add .b3 .b4; add .b3 .b5; .b0; .b3
+            - var: c1
+              cal: add .b1 .b4
+              wrongCals: 1; -1; mul -1 (add .b1 .b4); add .b1 .b0; add .b4 .b0; add .b4 .b3; .b1; .b4
+            - var: c2
+              cal: add .b2 .b5
+              wrongCals: 1; -1; mul -1 (add .b2 .b5); add .b2 .b4; add .b2 .b0; add .b5 1; .b2; .b5

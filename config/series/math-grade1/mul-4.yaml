@@ -1,0 +1,43 @@
+sampleTex: '325 = 3 \times 100 + 2 \times 10 + 5 \times 1'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: .a0
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 100
+              max: 999
+        - template: Add (Times .b0 100) (Times .b1 10) (Times .b2 1)
+          calcs: add (mul .b0 100) (mul .b1 10) (mul .b2 1)
+          constraints:
+            - var: b0
+              cal: digit .a0 100
+              wrongCals: digit .a0 100; digit .a0 10; digit .a0 1; 100; 10; 1
+            - var: b1
+              cal: digit .a0 10
+              wrongCals: digit .a0 100; digit .a0 10; digit .a0 1; 100; 10; 1
+            - var: b2
+              cal: digit .a0 1
+              wrongCals: digit .a0 100; digit .a0 10; digit .a0 1; 100; 10; 1
+    w:
+      expressions:
+        - template: Add (Times .b0 100) (Times .b1 10) (Times .b2 1)
+          calcs: add (mul .b0 100) (mul .b1 10) (mul .b2 1)
+          constraints:
+            - var: b0
+              min: 1
+              max: 9
+            - var: b1
+              min: 0
+              max: 9
+            - var: b2
+              min: 0
+              max: 9
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add (mul .b0 100) (mul .b1 10) (mul .b2 1)
+              wrongCals: add (mul .b0 100) (mul .b1 10) (mul (add 1 .b2) 1); add (mul .b0 100) (mul (add 1 .b1) 10) (mul .b2 1); add (mul (add 1 .b0) 100) (mul .b1 10) (mul .b2 1); add (mul .b0 100) (mul .b1 10) (mul .b2 2); add (mul .b0 100) (mul .b1 10) (mul .b2 3); add (mul .b0 100) (mul .b2 10) (mul .b1 1);add (mul .b1 100) (mul .b2 10) (mul .b0 1);add (mul .b2 100) (mul .b1 10) (mul .b0 1);add (mul .b2 100) (mul .b1 10);add (mul .b0 100) (mul .b1 10)

@@ -1,0 +1,58 @@
+skey: sub-6
+pkey: p028
+sname: "{Subtraction} 7"
+sampleTex: 100-34=66
+maxWidth: 194
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub 100 .a0
+          calcs: sub 100 .a0
+          constraints:
+            - var: a0
+              min: 11
+              max: 99
+              excepts: 10;20;30;40;50;60;70;80;90
+        - template: Sub 100 (Add .b0 .b1)
+          calcs: sub 100 (add .b0 .b1)
+          constraints:
+            - var: b0
+              cal: mul (digit .a0 10) 10
+              wrongCals: .a0; sub .a0 1; mul 10 (add (digit .a0 10) 1)
+            - var: b1
+              cal: digit .a0 1
+              wrongCals: .a0; add .a0 1; add .a0 -1; add .a0 10
+        - template: Sub (WithPar (Add 90 10)) .c0 .c1
+          calcs: sub (add 90 10) .c0 .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: add .b0 10; add .b0 1; .b1
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; add .b1 1; digit .b0 10
+        - template: Add (Sub 90 .d0) (Sub 10 .d1)
+          calcs: add (sub 90 .d0) (sub 10 .d1)
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: add .c0 10; add .c0 1; .c1
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; add .c1 1
+        - template: Add .e0 .e1
+          calcs: add .e0 .e1
+          constraints:
+            - var: e0
+              cal: sub 90 .d0
+              wrongCals: sub 100 .d0; .d0; mul 10 (sub 10 .d1); mul 10 .d1
+            - var: e1
+              cal: sub 10 .d1
+              wrongCals: digit .d0 1; sub 10 (digit .d0 1); .d1; sub 11 .d1
+        - template: .f0
+          calcs: .f0
+          constraints:
+            - var: f0
+              cal: add .e0 .e1
+              wrongCals: .e0; .e1; add .e0 .e0; add .e1 .e1; sub .e0 .e1

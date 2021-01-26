@@ -1,0 +1,23 @@
+sampleTex: '3 \times 5 = 5 \times 3'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 99
+            - var: a1
+              min: 1
+              max: 99
+        - template: Times .b0 .b1
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a1
+              wrongCals: 1; 10; mul (digit .a0 10) 10; mul (digit .a0 1) 10; mul (add (digit .a0 1) 1) 10; .a0; .a1; digit .a0 1; 10; 1; digit .a0 10; mul .a1 10
+            - var: b1
+              cal: .a0
+              wrongCals: 1; 10; mul (digit .a0 10) 10; mul (digit .a0 1) 10; mul (add (digit .a0 1) 1) 10; .a0; .a1; digit .a0 1; 10; 1; digit .a0 10; mul .a1 10

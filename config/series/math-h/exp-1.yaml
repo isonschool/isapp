@@ -1,0 +1,158 @@
+skey: exp-1
+pkey: p059
+sname: "{Exponent} 1"
+sampleTex: 'x^3 \times x^2 = x^5'
+localized:
+  en: Exponent 1
+  ja: べき乗 1
+maxWidth: 313
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Pow 'x' (Raw .a0)) (Pow 'x' (Raw .a1))
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: 1
+              max: 4
+        - template: Times (Mul (* .b0 'x')) (Mul (* .b1 'x'))
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+        - template: Pow 'x' .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 2; 1; 2; 3; add 1 .b0; add 1 .b1
+    zz:
+      expressions:
+        - template: Times (Pow 'x' (Raw .a0)) (Pow 'x' (Raw .a1))
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: 1
+              max: 4
+        - template: Pow 'x' (Add .b0 .b1)
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+        - template: Pow 'x' .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 2; 1; 2; 3; add 1 .b0; add 1 .b1
+    w:
+      expressions:
+        - template: Pow (WithPar (Pow 'x' (Raw .a0))) (Raw .a1)
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: 2
+              max: 4
+        - template: Times (* .b1 (Pow 'x' .b0))
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+        - template: Times (* .c1 (Mul (* .c0 'x')))
+          calcs: mul .c0 .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; 1; 2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; 1; 2
+        - template: Pow 'x' .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: mul .c0 .c1
+              wrongCals: .c0; .c1; add .c0 .c1; mul 2 .c0 .c1; add 1 (mul .c0 .c1); 1; 2; 3; add 1 .c0; add 1 .c1; mul 2 .c0
+    ww:
+      expressions:
+        - template: Pow (WithPar (Pow 'x' (Raw .a0))) (Raw .a1)
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: 2
+              max: 4
+        - template: Pow 'x' (Times .b0 .b1)
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+        - template: Times (* .c1 (Mul (* .c0 'x')))
+          calcs: mul .c0 .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; 1; 2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; 1; 2
+        - template: Pow 'x' .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: mul .c0 .c1
+              wrongCals: .c0; .c1; add .c0 .c1; mul 2 .c0 .c1; add 1 (mul .c0 .c1); 1; 2; 3; add 1 .c0; add 1 .c1; mul 2 .c0
+    u:
+      expressions:
+        - template: Pow 'x' (Pow (Raw .a0) (Raw .a1))
+          calcs: pow .a0 .a1
+          constraints:
+            - var: a0
+              min: 2
+              max: 3
+            - var: a1
+              min: 1
+              max: 3
+        - template: Pow 'x' (WithPar (Pow (Raw .b0) (Raw .b1)))
+          calcs: pow .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 1 .a1; add 2 .a1; 2; 3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; 1; 2
+        - template: Pow 'x' .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: pow .b0 .b1
+              wrongCals: .b0; .b1; mul .b0 .b1; 1; 2; 3

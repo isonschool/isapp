@@ -1,0 +1,180 @@
+sampleTex: '0.4x+2.3=1.1x-0.5'
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    w:
+      expressions:
+        - template: Equal (Add (Mul .c0 'x') .c1) (Add (Mul .c2 'x') .c3)
+          calcs: div (sub .c3 .c1) (sub .c0 .c2)
+          ignore: '|| (== .c3 .c1) (== .c0 .c2)'
+          constraints:
+            - var: b0
+              choices: 10;100
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 11
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+            - var: c0
+              cal: div .a0 .b0
+            - var: c1
+              cal: div .a1 .b0
+            - var: c2
+              cal: div .a2 .b0
+            - var: c3
+              cal: div .a3 .b0
+        - template: Equal (Add (Mul .d0 'x') (Mul .d4 'x') .d1 .d5) (Add (Mul .d2 'x') (Mul .d4 'x') .d3 .d5)
+          calcs: div (sub .d3 .d1) (sub .d0 .d2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== .d3 .d1) (== .d0 .d2)'
+          constraints:
+            - var: d0
+              cal: .c0
+            - var: d1
+              cal: .c1
+            - var: d2
+              cal: .c2
+            - var: d3
+              cal: .c3
+            - var: d4
+              cal: mul -1 .c2
+              wrongCals: ''
+            - var: d5
+              cal: mul -1 .c1
+              wrongCals: ''
+        - template: Equal (Mul .e0 'x') .e1
+          calcs: div .e1 .e0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== 0 .e1) (== 0 .e0)'
+          constraints:
+            - var: e0
+              cal: sub .d0 .d2
+              excepts: 0
+            - var: e1
+              cal: sub .d3 .d1
+              excepts: 0
+        - template: Equal 'x' (Frac .f1 .f0)
+          calcs: div .f1 .f0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: f0
+              cal: .e0
+              excepts: 0
+            - var: f1
+              cal: .e1
+              excepts: 0
+    u:
+      expressions:
+        - template: Equal (Add (Mul .c0 'x') .c1) (Add (Mul .c2 'x') .c3)
+          calcs: div (sub .c3 .c1) (sub .c0 .c2)
+          ignore: '|| (== .c3 .c1) (== .c0 .c2)'
+          constraints:
+            - var: b0
+              choices: 10;100
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 11
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -9
+              max: 9
+              excepts: 0
+            - var: c0
+              cal: div .a0 .b0
+            - var: c1
+              cal: div .a1 .b0
+            - var: c2
+              cal: div .a2 .b0
+            - var: c3
+              cal: div .a3 .b0
+        - template: Equal (Times (Add (Mul .t0 'x') .t1) .t4) (Times (Add (Mul .t2 'x') .t3) .t5)
+          calcs: div (sub (mul .t3 .t5) (mul .t1 .t4)) (sub (mul .t0 .t4) (mul .t2 .t5))
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== (mul .t3 .t5) (mul .t1 .t4)) (== (mul .t0 .t4) (mul .t2 .t5))'
+          constraints:
+            - var: t0
+              cal: .c0
+            - var: t1
+              cal: .c1
+            - var: t2
+              cal: .c2
+            - var: t3
+              cal: .c3
+            - var: t4
+              cal: .b0
+              wrongCals: ''
+            - var: t5
+              cal: .b0
+              wrongCals: ''
+        - template: Equal (Add (Mul .r0 'x') .r1) (Add (Mul .r2 'x') .r3)
+          calcs: div (sub .r3 .r1) (sub .r0 .r2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== .r3 .r1) (== .r0 .r2)'
+          constraints:
+            - var: r0
+              cal: mul .t0 .t4
+            - var: r1
+              cal: mul .t1 .t4
+            - var: r2
+              cal: mul .t2 .t5
+            - var: r3
+              cal: mul .t3 .t5
+        - template: Equal (Add (Mul .d0 'x') (Mul .d4 'x') .d1 .d5) (Add (Mul .d2 'x') (Mul .d4 'x') .d3 .d5)
+          calcs: div (sub .d3 .d1) (sub .d0 .d2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== .d3 .d1) (== .d0 .d2)'
+          constraints:
+            - var: d0
+              cal: .r0
+            - var: d1
+              cal: .r1
+            - var: d2
+              cal: .r2
+            - var: d3
+              cal: .r3
+            - var: d4
+              cal: mul -1 .r2
+              wrongCals: ''
+            - var: d5
+              cal: mul -1 .r1
+              wrongCals: ''
+        - template: Equal (Mul .e0 'x') .e1
+          calcs: div .e1 .e0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          ignore: '|| (== 0 .e1) (== 0 .e0)'
+          constraints:
+            - var: e0
+              cal: sub .d0 .d2
+              excepts: 0
+            - var: e1
+              cal: sub .d3 .d1
+              excepts: 0
+        - template: Equal 'x' (Frac .f1 .f0)
+          calcs: div .f1 .f0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: f0
+              cal: .e0
+              excepts: 0
+            - var: f1
+              cal: .e1
+              excepts: 0

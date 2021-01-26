@@ -1,0 +1,61 @@
+sampleTex: '(-\frac{2}{3})^{2} \times (\frac{3}{4})^{2} = \frac{1}{4}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Pow (Frac .a0 .a1) .a2) (Pow (Frac .a3 .a4) .a5)
+          calcs: mul (pow (div .a0 .a1) .a2) (pow (div .a3 .a4) .a5)
+          constraints:
+            - var: a0
+              min: -4
+              max: 4
+              excepts: 0
+            - var: a1
+              min: -4
+              max: 4
+              excepts: 0; .a0; mul -1 .a0
+            - var: a2
+              min: 1
+              max: 2
+            - var: a3
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a4
+              min: -3
+              max: 3
+              excepts: 0; .a3; mul -1 .a3
+            - var: a5
+              min: 1
+              max: 3
+        - template: Times (* .b2 (Frac .b0 .b1)) (* .b5 (Frac .b3 .b4))
+          calcs: mul (pow (div .b0 .b1) .b2) (pow (div .b3 .b4) .b5)
+          ignore: '|| (&& (== 0 (mod .a2 2)) (== 0 (add (div .b0 .b1) (div .a0 .a1)))) (&& (== 0 (mod .a5 2)) (== 0 (add (div .b3 .b4) (div .a3 .a4))))'
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b2
+              cal: .a2
+              wrongCals: 1;2;3
+            - var: b3
+              cal: .a3
+              wrongCals: mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b4
+              cal: .a4
+              wrongCals: mul -1 .a0; add .a1 .a0; .a1; mul -1 .a1; mul -1 .a0 .a1; add 1 .a0; add -1 .a0; add 2 .a0; add -2 .a0; add 1 .a1; add -1 .a1; add 2 .a1; add -2 .a1
+            - var: b5
+              cal: .a5
+              wrongCals: 1;2;3
+        - template: Frac .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul (pow .b0 .b2) (pow .b3 .b5)
+              wrongCals: add -1 $cal; add 1 $cal; add -1 (pow .b0 .b2); add 1 (pow .b0 .b2); mul -1 (pow .b0 .b2); .b0; .b2; add .b0 .b2; sub .b0 .b2; sub .b2 .b0; mul .b0 .b2
+            - var: c1
+              cal: mul (pow .b1 .b2) (pow .b4 .b5)
+              wrongCals: add -1 $cal; add 1 $cal; add -1 (pow .b1 .b2); add 1 (pow .b1 .b2); mul -1 (pow .b1 .b2); .b1; .b2; add .b1 .b2; sub .b1 .b2; sub .b2 .b1; mul .b1 .b2

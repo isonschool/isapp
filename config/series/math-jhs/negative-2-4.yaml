@@ -1,0 +1,30 @@
+sampleTex: '0.1 \times (-2) = -0.2'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: h0
+              min: -12
+              max: 12
+              excepts: 0
+            - var: h1
+              min: -12
+              max: 12
+              excepts: 0
+            - var: h2
+              choices: 0.1;1
+            - var: h3
+              choices: 0.1;1
+            - var: a0
+              cal: mul .h0 .h2
+            - var: a1
+              cal: mul .h1 .h3
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: .a0; .a1; mul -1 .a0 .a1; 0.1; 0.01; -0.1; -0.01; add .a0 .a1; div .a0 10; div .a1 10; mul .a0 .a1 10; mul .a0 .a1 -10; mul .a0 .a1 0.1; mul .a0 .a1 -0.1

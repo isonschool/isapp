@@ -1,0 +1,125 @@
+sampleTex: '\frac{3}{4} \times \frac{1}{5} = \frac{3}{20}'
+maxWidth: 197
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Frac .a0 .a1) (Frac .a2 .a3)
+          calcs: mul (divf .a0 .a1) (divf .a2 .a3)
+          ignore: '!= 1 (gcd (mul .a0 .a2) (mul .a1 .a3))'
+          constraints:
+            - var: a0
+              choices: 5;13;17;19
+            - var: a1
+              choices: 3;7;9;11
+            - var: a2
+              min: 2
+              max: 9
+              excepts: .a1
+            - var: a3
+              choices: 3;7;9;11
+              excepts: .a2
+        - template: Times (WithPar (Div .b0 .b1)) (WithPar (Div .b2 .b3))
+          calcs: mul (divf .b0 .b1) (divf .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+        - template: Times (Div .c0 .c1) (Div .c2 .c3)
+          calcs: mul (divf .c0 .c1) (divf .c2 .c3)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; mul .b0 .b2; mul .b0 .b3; mul .b1 .b2; mul .b1 .b3; mul .b2 .b3
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; mul .b0 .b2; mul .b0 .b3; mul .b1 .b2; mul .b1 .b3; mul .b2 .b3
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; mul .b0 .b2; mul .b0 .b3; mul .b1 .b2; mul .b1 .b3; mul .b2 .b3
+            - var: c3
+              cal: .b3
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; mul .b0 .b2; mul .b0 .b3; mul .b1 .b2; mul .b1 .b3; mul .b2 .b3
+        - template: Div (WithPar (Times .d0 .d2)) (WithPar (Times .d1 .d3))
+          calcs: divf (mul .d0 .d2) (mul .d1 .d3)
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c0 .c2; mul .c0 .c3; mul .c1 .c2; mul .c1 .c3; mul .c2 .c3
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c0 .c2; mul .c0 .c3; mul .c1 .c2; mul .c1 .c3; mul .c2 .c3
+            - var: d2
+              cal: .c2
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c0 .c2; mul .c0 .c3; mul .c1 .c2; mul .c1 .c3; mul .c2 .c3
+            - var: d3
+              cal: .c3
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c0 .c2; mul .c0 .c3; mul .c1 .c2; mul .c1 .c3; mul .c2 .c3
+        - template: Div .e0 .e1
+          calcs: divf .e0 .e1
+          constraints:
+            - var: e0
+              cal: mul .d0 .d2
+              wrongCals: .d0; .d1; .d2; .d3; mul .d0 .d1; mul .d0 .d2; mul .d0 .d3; mul .d1 .d2; mul .d1 .d3; mul .d2 .d3
+            - var: e1
+              cal: mul .d1 .d3
+              wrongCals: .d0; .d1; .d2; .d3; mul .d0 .d1; mul .d0 .d2; mul .d0 .d3; mul .d1 .d2; mul .d1 .d3; mul .d2 .d3
+        - template: Frac .f0 .f1
+          calcs: divf .f0 .f1
+          constraints:
+            - var: f0
+              cal: .e0
+              wrongCals: .e0; .e1; mul .e0 .e1; add .e0 .e1
+            - var: f1
+              cal: .e1
+              wrongCals: .e0; .e1; mul .e0 .e1; add .e0 .e1
+    w:
+      expressions:
+        - template: Times (Frac .a0 .a1) (Frac .a2 .a3)
+          calcs: mul (divf .a0 .a1) (divf .a2 .a3)
+          ignore: '!= 1 (gcd (mul .a0 .a2) (mul .a1 .a3))'
+          constraints:
+            - var: a0
+              choices: 11;13;17;19
+            - var: a1
+              choices: 3;5;7;9
+            - var: a2
+              min: 2
+              max: 9
+              excepts: .a1
+            - var: a3
+              choices: 3;5;7;9
+              excepts: .a2
+        - template: Frac (Times .b0 .b2) (Times .b1 .b3)
+          calcs: divf (mul .b0 .b2) (mul .b1 .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+        - template: Frac .c0 .c1
+          calcs: divf .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; add .b0 .b1; mul .b0 .b2; mul .b1 .b3
+            - var: c1
+              cal: mul .b1 .b3
+              wrongCals: .b0; .b1; .b2; .b3; mul .b0 .b1; add .b0 .b1; mul .b0 .b2; mul .b1 .b3

@@ -1,0 +1,257 @@
+sampleTex: '\frac{3}{x} | _{x = \frac{1}{2}} = 6'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Restrict (Frac .a0 'x') (Equal 'x' (Frac .a1 .a2))
+          calcs: div .a0 (div .a1 .a2)
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0;1;-1
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -7
+              max: 7
+              excepts: 0;1;-1
+              pred: '== 1 (gcd .a1 .this)'
+        - template: Frac .b0 (Frac .b1 .b2)
+          calcs: div .b0 (div .b1 .b2)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Frac (Times .c0 .c3) (Times (Frac .c1 .c2) .c4)
+          calcs: div (mul .c0 .c3) (mul (div .c1 .c2) .c4)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b2
+              excepts: 0
+            - var: c4
+              cal: .b2
+              excepts: 0
+        - template: Frac .d0 .d1
+          calcs: div .d0 .d1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: mul .c0 .c3
+              excepts: 0
+            - var: d1
+              cal: mul (div .c1 .c2) .c4
+              excepts: 0
+    zz:
+      expressions:
+        - template: Restrict (Frac .a0 'x') (Equal 'x' (Frac .a1 .a2))
+          calcs: div .a0 (div .a1 .a2)
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0;1;-1
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -7
+              max: 7
+              excepts: 0;1;-1
+              pred: '== 1 (gcd .a1 .this)'
+        - template: Restrict (Div .b0 'x') (Equal 'x' (Frac .b1 .b2))
+          calcs: div .b0 (div .b1 .b2)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Div .c0 (Frac .c1 .c2)
+          calcs: div .c0 (div .c1 .c2)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+        - template: Times .d0 (Frac .d2 .d1)
+          calcs: mul .d0 (div .d2 .d1)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: .c0
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+        - template: Frac .e0 .e1
+          calcs: div .e0 .e1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: e0
+              cal: mul .d0 .d2
+              excepts: 0
+            - var: e1
+              cal: .d1
+              excepts: 0
+    w:
+      expressions:
+        - template: Restrict (Frac 'x' .a0) (Equal 'x' (Frac .a1 .a2))
+          calcs: div (div .a1 .a2) .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0;1;-1
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -7
+              max: 7
+              excepts: 0;1;-1
+              pred: '== 1 (gcd .a1 .this)'
+        - template: Frac (Frac .b1 .b2) .b0
+          calcs: div (div .b1 .b2) .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Frac (Times (Frac .c1 .c2) .c4) (Times .c0 .c3)
+          calcs: div (mul (div .c1 .c2) .c4) (mul .c0 .c3)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b2
+              excepts: 0
+            - var: c4
+              cal: .b2
+              excepts: 0
+        - template: Frac .d1 .d0
+          calcs: div .d1 .d0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: mul .c0 .c3
+              excepts: 0
+            - var: d1
+              cal: mul (div .c1 .c2) .c4
+              excepts: 0
+    ww:
+      expressions:
+        - template: Restrict (Frac 'x' .a0) (Equal 'x' (Frac .a1 .a2))
+          calcs: div (div .a1 .a2) .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0;1;-1
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -7
+              max: 7
+              excepts: 0;1;-1
+              pred: '== 1 (gcd .a1 .this)'
+        - template: Restrict (Div 'x' .b0) (Equal 'x' (Frac .b1 .b2))
+          calcs: div (div .b1 .b2) .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Div (Frac .c1 .c2) .c0
+          calcs: div (div .c1 .c2) .c0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+        - template: Times (Frac .d1 .d2) (Frac 1 .d0)
+          calcs: mul (div .d1 .d2) (div 1 .d0)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: .c0
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+        - template: Frac .e1 .e0
+          calcs: div .e1 .e0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: e0
+              cal: mul .d0 .d2
+              excepts: 0
+            - var: e1
+              cal: .d1
+              excepts: 0

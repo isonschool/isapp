@@ -1,0 +1,45 @@
+sampleTex: '\frac{1}{2} \times 0.1 = \frac{1}{20}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Frac .a0 .a1) .a2; Times .a2 (Frac .a0 .a1)
+          calcs: mul (div .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 20
+            - var: a1
+              min: 1
+              max: 9
+            - var: h0
+              min: 1
+              max: 9
+            - var: h1
+              choices: 10; 100
+            - var: a2
+              cal: div .h0 .h1
+        - template: Times (Frac .b0 .b1) (Frac .b2 .b3); Times (Frac .b2 .b3) (Frac .b0 .b1)
+          calcs: mul (div .b0 .b1) (div .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .h0; .h1; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 10; 15
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .h0; .h1; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 10; 15
+            - var: b2
+              cal: .h0
+              wrongCals: .a0; .a1; .a2; .h0; .h1; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 10; 15
+            - var: b3
+              cal: .h1
+              wrongCals: .a0; .a1; .a2; .h0; .h1; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 10; 15
+        - template: Frac .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 2; 6; 8
+            - var: c1
+              cal: mul .b1 .b3
+              wrongCals: .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 2; 6; 8

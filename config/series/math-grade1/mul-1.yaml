@@ -1,0 +1,55 @@
+sampleTex: '2 \times 3 = 6'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 5
+        - template: Add (* .b0 .b1)
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a1
+              wrongCals: .a0; .a1; add .a0 1; add .a1 1; add .a0 2; add .a1 2; 10
+            - var: b1
+              cal: .a0
+              wrongCals: .a0; .a1; add .a0 1; add .a1 1; add .a0 2; add .a1 2; 10
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1; mul (add 1 .b0) .b1; mul .b0 (add 1 .b1); 2; 4; 8; 10
+    w:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 5
+            - var: a1
+              min: 1
+              max: 9
+        - template: Add (* .b0 .b1)
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add .a0 1; add .a1 1; add .a0 2; add .a1 2; 10; 5
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add .a0 1; add .a1 1; add .a0 2; add .a1 2; 10; 5
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1; mul (add 1 .b0) .b1; mul .b0 (add 1 .b1); 2; 4; 8; 10

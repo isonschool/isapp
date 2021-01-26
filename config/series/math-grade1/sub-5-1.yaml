@@ -1,0 +1,19 @@
+sampleTex: 30-20=10
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: a0
+              choices: 10;20;30;40;50;60;70;80;90
+            - var: a1
+              choices: 10;20;30;40;50;60;70;80;90
+              max: .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: 10;20;30;40;50;sub .a0 9; sub .a0 11; .a0; .a1

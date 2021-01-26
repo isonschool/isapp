@@ -1,0 +1,70 @@
+sampleTex: '(x + 3) - (5x - 1) = -4x + 4'
+maxWidth: 290
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Mul .a0 (Add (Mul .a1 'x') .a2)) (Mul .a3 (Add (Mul .a4 'x') .a5))
+          calcs: add (mul .a0 .a1) (mul .a3 .a4); add (mul .a0 .a2) (mul .a3 .a5)
+          constraints:
+            - var: a0
+              choices: 1;-1
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              choices: 1;-1
+              excepts: 0
+            - var: a4
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a5
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Add (Mul .b0 'x') .b1 (Mul .b2 'x') .b3
+          calcs: add .b0 .b2; add .b1 .b3
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: 1; -1; mul -1 .a0 .a1; .a0; .a1; .a2; .a3; .a4; .a5; mul -1 .a0 .a2; mul -1 .a3 .a4; mul -1 .a3 .a5; mul .a3 .a4; mul .a3 .a5; 2; -2
+            - var: b1
+              cal: mul .a0 .a2
+              wrongCals: 1; -1; mul -1 .a0 .a1; .a0; .a1; .a2; .a3; .a4; .a5; mul -1 .a0 .a2; mul -1 .a3 .a4; mul -1 .a3 .a5; mul .a3 .a4; mul .a3 .a5; 2; -2
+            - var: b2
+              cal: mul .a3 .a4
+              wrongCals: 1; -1; mul -1 .a0 .a1; .a0; .a1; .a2; .a3; .a4; .a5; mul -1 .a0 .a2; mul -1 .a3 .a4; mul -1 .a3 .a5; mul .a3 .a4; mul .a3 .a5; 2; -2
+            - var: b3
+              cal: mul .a3 .a5
+              wrongCals: 1; -1; mul -1 .a0 .a1; .a0; .a1; .a2; .a3; .a4; .a5; mul -1 .a0 .a2; mul -1 .a3 .a4; mul -1 .a3 .a5; mul .a3 .a4; mul .a3 .a5; 2; -2
+        - template: Add (Mul .c0 'x') (Mul .c2 'x') .c1 .c3
+          calcs: add .c0 .c2; add .c1 .c3
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3
+            - var: c1
+              cal: .b1
+              wrongCals: 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3
+            - var: c2
+              cal: .b2
+              wrongCals: 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3
+            - var: c3
+              cal: .b3
+              wrongCals: 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3
+        - template: Add (Mul .d0 'x') .d1
+          calcs: .d0; .d1
+          constraints:
+            - var: d0
+              cal: add .c0 .c2
+              wrongCals: 2; -2; 1; -1; mul -1 (add .c0 .c2); mul -1 .c0 .c1; .c0; .c1; add .c0 .c1; sub .c0 .c1; sub .c1 .c0; mul .c0 .c1; mul -1 (add .c1 .c3); mul -1 .c1; mul -1 .c3
+            - var: d1
+              cal: add .c1 .c3
+              wrongCals: 2; -2; 1; -1; mul -1 (add .c0 .c2); mul -1 .c0 .c1; .c0; .c1; add .c0 .c1; sub .c0 .c1; sub .c1 .c0; mul .c0 .c1; mul -1 (add .c1 .c3); mul -1 .c1; mul -1 .c3

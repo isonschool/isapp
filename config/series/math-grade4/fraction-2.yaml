@@ -1,0 +1,65 @@
+sname: "{Fraction} 2"
+sampleTex: '\frac{10}{5} = 2'
+maxWidth: 84
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Frac .a0 .a1
+          calcs: divf .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .h0 .a1
+        - template: Div .b0 .b1
+          calcs: divf .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; .h0; mul .h0 .a0
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; .h0; 1; 2; 4; 5; 10
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: divf .b0 .b1
+              wrongCals: .b0; .b1; mul .b0 .b1; add .b0 .b1; add 1 (div .b0 .b1)
+    w:
+      expressions:
+        - template: .a0
+          calcs: .a0
+          constraints:
+            - var: h0
+              min: 2
+              max: 10
+            - var: a0
+              min: 1
+              max: 10
+        - template: Frac (Times .b0 .b1) .b2
+          calcs: div (mul .b0 .b1) .b2
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .h0; add .a0 .h0; mul .a0 .h0; 1; 2; 3; 5
+            - var: b1
+              cal: .h0
+              wrongCals: add 1 .h0; add 3 .h0; add 5 .h0; add 7 .h0; add 9 .h0
+            - var: b2
+              cal: .h0
+              wrongCals: add 2 .h0; add 4 .h0; add 6 .h0; add 8 .h0; add 10 .h0
+        - template: Frac .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+              wrongCals: .b0; .b1; mul .b0 .b1; add .b0 .b1; add 1 (mul .b0 .b1); add -1 (mul .b0 .b1); 1; 2; 3; .b2; add .b0 .b2; add .b1 .b2; mul .b0 .b2; mul .b1 .b2
+            - var: c1
+              cal: .b2
+              wrongCals: .b0; .b1; mul .b0 .b1; add .b0 .b1; add 1 (mul .b0 .b1); add -1 (mul .b0 .b1); 1; 2; 3; .b2; add .b0 .b2; add .b1 .b2; mul .b0 .b2; mul .b1 .b2

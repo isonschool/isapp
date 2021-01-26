@@ -1,0 +1,42 @@
+sampleTex: '0.2 \times 3.2 - 0.1 = 0.54'
+mth:
+  generators:
+    z:
+      expressions:
+        # .a1(=.h0*.h1) * .a2(=.h2*.h1) - .a0(=.h3*.h1*.h1)
+        - template: Sub (Times .a1 .a2) .a0; Sub (Times .a2 .a1) .a0
+          calcs: sub (mul .a1 .a2) .a0
+          assertion: '== (sub (mul .a1 .a2) .a0) (sub (mul .h0 .h1 .h2 .h1) (mul .h3 .h1 .h1))'
+          constraints:
+            - var: h0
+              min: 1
+              max: 99
+            - var: h1
+              choices: 0.1
+            - var: h2
+              min: 1
+              max: 9
+            - var: h3
+              min: 1
+              max: mul .h0 .h2
+            - var: a0
+              cal: mul .h0 .h1
+            - var: a1
+              cal: mul .h2 .h1
+            - var: a2
+              cal: mul .h3 .h1 .h1
+        - template: Sub .b0 .b1
+          calcs: sub .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a1 .a2
+              wrongCals: .h0; .h1; .h2; .a1; .a0; .a2; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 0.1; mul .a1 .a2; mul 10 .a1 .a2
+            - var: b1
+              cal: .a0
+              wrongCals: .h0; .h1; .h2; .a1; .a0; .a2; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 0.1; mul .a1 .a2; mul 10 .a1 .a2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: sub .b0 .b1
+              wrongCals: .b0; .b1; mul .b0 .b1; add .b0 .b1; add (mul 10 .b0) .b1; add .b0 (mul 10 .b1); 1; 2; 3

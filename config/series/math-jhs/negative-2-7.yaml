@@ -1,0 +1,86 @@
+sampleTex: '-2 \times (-5) \times (-3) = -30'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1 .a2
+          calcs: mul .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Times .b1 .b2 .b3)
+          calcs: mul .b0 .b1 .b2 .b3
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1 .a2)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b2
+              cal: abs .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b3
+              cal: abs .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2 .b3
+              wrongCals: mul -1 .b0 .b1 .b2 .b3; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+    w:
+      expressions:
+        - template: Times .a0 .a1 .a2 .a3
+          calcs: mul .a0 .a1 .a2 .a3
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Times .b1 .b2 .b3 .b4)
+          calcs: mul .b0 .b1 .b2 .b3 .b4
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1 .a2 .a3)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b2
+              cal: abs .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b3
+              cal: abs .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b4
+              cal: abs .a3
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2 .b3 .b4
+              wrongCals: mul .b1 .b2; mul .b1 .b2 .b3; mul -1 .b0 .b1 .b2 .b3 .b4; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10

@@ -1,0 +1,75 @@
+sampleTex: '1:2 = 2:4'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Ratio .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 10
+            - var: a1
+              min: 1
+              max: 10
+            - var: h0
+              min: 2
+              max: 10
+        - template: Ratio (Times .b0 .b2) (Times .b1 .b2)
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; add .a0 .a1; mul .a0 .a1; 3; 6; 9
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; add .a0 .a1; mul .a0 .a1; 3; 6; 9
+            - var: b2
+              cal: .h0
+        - template: Ratio .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b0; mul .b2 .b2; mul .b1 .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; add .b0 .b1; mul .b0 .b1; 3; 6; 9
+            - var: c1
+              cal: mul .b1 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b0; mul .b2 .b2; mul .b1 .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; add .b0 .b1; mul .b0 .b1; 3; 6; 9
+    w:
+      expressions:
+        - template: Ratio .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 10
+            - var: h1
+              min: 1
+              max: 10
+            - var: h2
+              min: 2
+              max: 10
+            - var: a0
+              cal: mul .h0 .h2
+            - var: a1
+              cal: mul .h1 .h2
+        - template: Ratio (Div .b0 .b2) (Div .b1 .b2)
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; add .a0 .a1; mul .a0 .a1; 3; 6; 9
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 2 .a0; add 1 .a1; add 2 .a1; add .a0 .a1; mul .a0 .a1; 3; 6; 9
+            - var: b2
+              cal: .h2
+        - template: Ratio .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: div .b0 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b0; mul .b2 .b2; mul .b1 .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; add .b0 .b1; mul .b0 .b1; 3; 6; 9
+            - var: c1
+              cal: div .b1 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b0; mul .b2 .b2; mul .b1 .b1; add 1 .b0; add 2 .b0; add 1 .b1; add 2 .b1; add .b0 .b1; mul .b0 .b1; 3; 6; 9

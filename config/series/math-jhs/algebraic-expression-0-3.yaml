@@ -1,0 +1,127 @@
+sampleTex: 'x \div 2 \times y = \frac{xy}{2}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Div 'x' .a0) 'y'; Times 'y' (Div 'x' .a0); Div (Times 'y' 'x') .a0; Div (Times 'x' 'y') .a0; Times (Div 'y' .a0) 'x'; Times 'x' (Div 'y' .a0)
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Frac 'xy' .b0
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+    w:
+      expressions:
+        - template: Div (Div 'x' .a0) 'y'; Div (Div 'x' 'y') .a0; Div 'x' (Times 'y' .a0); Div 'x' (Times .a0 'y')
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Frac 'x' (Mul .b0 'y')
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+    u:
+      expressions:
+        - template: Add .a0 (Times .a1 'x')
+          calcs: .a0; .a1
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add .b0 (Mul .b1 'x')
+          calcs: .b0; .b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+    q:
+      expressions:
+        - template: Add (Times .a0 'x') (Times .a1 'y')
+          calcs: .a0; .a1
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add (Mul .b0 'x') (Mul .b1 'y')
+          calcs: .b0; .b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+    r:
+      expressions:
+        - template: Add .a0 (Div 'x' .a1)
+          calcs: .a0; .a1
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add .b0 (Frac 'x' .b1)
+          calcs: .b0; .b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+    s:
+      expressions:
+        - template: Add (Div .a0 'x') (Div 'y' .a1)
+          calcs: .a0; .a1
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add (Frac .b0 'x') (Frac 'y' .b1)
+          calcs: .b0; .b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0

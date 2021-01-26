@@ -1,0 +1,112 @@
+sampleTex: '2 \times 0.3 = 0.6'
+maxWidth: 205
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: h1
+              choices: 10;100;1000
+            - var: a0
+              cal: divf .h0 .h1
+            - var: a1
+              min: 1
+              max: 9
+        - template: Times (WithPar (Div .b0 .b1)) .b2
+          calcs: mul (divf .b0 .b1) .b2
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b1
+              cal: .h1
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b2
+              cal: .a1
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+        - template: Div (Times .c0 .c2) .c1
+          calcs: divf (mul .c0 .c2) .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+        - template: Div .d0 .d1
+          calcs: divf .d0 .d1
+          constraints:
+            - var: d0
+              cal: mul .c0 .c2
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2
+        - template: .e0
+          calcs: .e0
+          constraints:
+            - var: e0
+              cal: divf .d0 .d1
+              wrongCals: .d0; .d1; divf .d0 .d1; divf (mul 10 .d0) .d1; divf (mul 100 .d0) .d1
+    w:
+      expressions:
+        - template: Times .a1 .a0
+          calcs: mul .a1 .a0
+          constraints:
+            - var: h0
+              min: 1
+              max: 10
+            - var: h1
+              choices: 10;100;1000
+            - var: a0
+              cal: divf .h0 .h1
+            - var: a1
+              min: 1
+              max: 9
+        - template: Times .b2 (WithPar (Div .b0 .b1))
+          calcs: mul .b2 (divf .b0 .b1)
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b1
+              cal: .h1
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b2
+              cal: .a1
+              wrongCals: .h0; .h1; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+        - template: Div (Times .c2 .c0) .c1
+          calcs: divf (mul .c2 .c0) .c1
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; mul 10 .b0; mul 10 .b1; mul 10 .b2
+        - template: Div .d0 .d1
+          calcs: divf .d0 .d1
+          constraints:
+            - var: d0
+              cal: mul .c2 .c0
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2
+        - template: .e0
+          calcs: .e0
+          constraints:
+            - var: e0
+              cal: divf .d0 .d1
+              wrongCals: .d0; .d1; divf .d0 .d1; divf (mul 10 .d0) .d1; divf (mul 100 .d0) .d1

@@ -1,0 +1,62 @@
+sampleTex: 36+200+814=1050
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 999
+            - var: a1
+              min: 1
+              max: 999
+            - var: a2
+              min: 1
+              max: 999
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: add .a0 (mul 10 (digit .a1 10)); add .a0 (digit .a1 1); add (mul 10 (digit .a0 10)) .a1; .a0; .a1; .a2; 1; 10; mul 10 (digit .a2 10); digit .a2 1
+            - var: b1
+              cal: .a2
+              wrongCals: add .a0 (mul 10 (digit .a1 10)); add .a0 (digit .a1 1); add (mul 10 (digit .a0 10)) .a1; .a0; .a1; .a2; 1; 10; mul 10 (digit .a2 10); digit .a2 1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add 1 .b0 .b1; add 10 .b0 .b1; add -1 .b0 .b1
+    w:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 999
+            - var: a1
+              min: 1
+              max: 999
+            - var: a2
+              min: 1
+              max: 999
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: add .a0 (mul 10 (digit .a1 10)); add .a0 (digit .a1 1); add (mul 10 (digit .a0 10)) .a1; .a0; .a1; .a2; 1; 10; mul 10 (digit .a2 10); digit .a2 1
+            - var: b1
+              cal: add .a1 .a2
+              wrongCals: add .a1 (mul 10 (digit .a2 10)); add .a1 (digit .a2 1); add (mul 10 (digit .a1 10)) .a2; .a0; .a1; .a2; 1; 10; mul 10 (digit .a2 10); digit .a2 1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add 1 .b0 .b1; add 10 .b0 .b1; add -1 .b0 .b1
+

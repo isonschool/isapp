@@ -1,0 +1,20 @@
+sampleTex: '3 \times 9 = 27'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 0
+              max: 9
+            - var: a1
+              min: 0
+              max: 9
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: .a0; .a1; add .a0 1; add .a1 1; add .a0 2; add .a1 2; 10; mul .a0 (add 1 .a1); mul (add 1 .a0) .a1; mul (add 1 .a0) (add 1 .a1)

@@ -1,0 +1,97 @@
+sampleTex: '-5 \times (-2) = 10'
+maxWidth: 135
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: -1
+              excepts: 0
+        - template: SignIfMinus .b0 (Times .b1 .b2)
+          calcs: mul .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b2
+              cal: abs .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2
+              wrongCals: mul -1 .b0 .b1 .b2; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+    w:
+      expressions:
+        - template: Times (WithSign .a0) (WithSign .a1)
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Times .b1 .b2)
+          calcs: mul .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b2
+              cal: abs .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2
+              wrongCals: mul -1 .b0 .b1 .b2; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10
+    u:
+      expressions:
+        - template: Times (WithPar (WithSign .a0)) (WithSign .a1)
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+        - template: SignIfMinus .b0 (Times .b1 .b2)
+          calcs: mul .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: sign (mul .a0 .a1)
+              wrongCals: 1;-1
+            - var: b1
+              cal: abs .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+            - var: b2
+              cal: abs .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; add 1 .a0; add 1 .a1; add -1 .a0; add -1 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1 .b2
+              wrongCals: mul -1 .b0 .b1 .b2; .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 10

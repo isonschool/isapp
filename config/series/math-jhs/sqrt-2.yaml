@@ -1,0 +1,71 @@
+skey: sqrt-2
+pkey: p056
+sname: "{Square root} 2"
+sampleTex: '\sqrt{2} \times \sqrt{3} = \sqrt{6}'
+localized:
+  en: Square root 2
+  ja: 平方根 2
+maxWidth: 127
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Sqrt .a0) (Sqrt .a1)
+          calcs: mul (sqrt .a0) (sqrt .a1)
+          constraints:
+            - var: a0
+              min: 1
+              max: 10
+            - var: a1
+              min: 1
+              max: 20
+              pred: == 1 (gcd .a0 .this)
+        - template: Sqrt (Times .b0 .b1)
+          calcs: sqrt (mul .b0 .b1)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add 1 .a0; add 1 .a1; add .a0 .a1; 1; 2; 3; mul .a0 .a0; mul 2 .a0; mul .a1 .a1; mul 2 .a1 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; add 1 .a0; add 1 .a1; add .a0 .a1; 1; 2; 3; mul .a0 .a0; mul 2 .a0; mul .a1 .a1; mul 2 .a1 .a1
+        - template: Sqrt .c0
+          calcs: sqrt .c0
+          constraints:
+            - var: c0
+              cal: mul .b0 .b1
+              wrongCals: add .b0 .b1; 1; 2; 3; mul .b0 .b0; mul 2 .b0; mul .b1 .b1; mul 2 .b1 .b1
+    w:
+      expressions:
+        - template: Sqrt .a0
+          calcs: .h0
+          constraints:
+            - var: h0
+              min: 1
+              max: 10
+            - var: a0
+              cal: mul .h0 .h0
+        - template: Sqrt (Times .b0 .b1)
+          calcs: sqrt (mul .b0 .b1)
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .a0; mul 2 .a0; mul 2 .h0; 1; 2
+            - var: b1
+              cal: .h0
+              wrongCals: .h0; .a0; mul 2 .a0; mul 2 .h0; 1; 2
+        - template: Times (Sqrt .c0) (Sqrt .c1)
+          calcs: sqrt (mul .c0 .c1)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; mul 2 .b0; mul .b0 .b0; 1; 2
+            - var: c1
+              cal: .b1
+              wrongCals: .b1; mul 2 .b1; mul .b1 .b1; 1; 2
+        - template: .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: sqrt (mul .c0 .c1)
+              wrongCals: .c0; .c1; 0; 1; 2; mul 2 .c0; mul 3 .c0

@@ -1,0 +1,119 @@
+sampleTex: '\frac{x+1}{2}-\frac{2x-1}{3}=\frac{-x+5}{6}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Frac (Add (Mul .a0 'x') .a1) .a2) (Frac (Add (Mul .a3 'x') .a4) .a5)
+          calcs: add (div .a0 .a2) (div .a3 .a5); add (div .a1 .a2) (div .a4 .a5)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+              pred: '_|_ .a0 .a1 .this'
+            - var: a3
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a4
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a5
+              min: -10
+              max: 10
+              excepts: 0; .a2; mul -1 .a2
+              pred: '_|_ .a3 .a4 .this'
+        - template: Add (Frac (Times (Add (Mul .b0 'x') .b1) .b6) (Times .b2 .b7)) (Frac (Times (Add (Mul .b3 'x') .b4) .b8) (Times .b5 .b9))
+          calcs: add (div (mul .b0 .b6) (mul .b2 .b7)) (div (mul .b3 .b8) (mul .b5 .b9)); add (div (mul .b1 .b6) (mul .b2 .b7)) (div (mul .b4 .b8) (mul .b5 .b9))
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+              wrongCals: ''
+            - var: b3
+              cal: .a3
+            - var: b4
+              cal: .a4
+            - var: b5
+              cal: .a5
+              wrongCals: ''
+            - var: b6
+              cal: clcm .a2 .a5
+              wrongCals: ''
+            - var: b7
+              cal: clcm .a2 .a5
+              wrongCals: ''
+            - var: b8
+              cal: clcm .a5 .a2
+              wrongCals: ''
+            - var: b9
+              cal: clcm .a5 .a2
+              wrongCals: ''
+        - template: Frac (Add (Times (Add (Mul .c0 'x') .c1) .c6) (Times (Add (Mul .c3 'x') .c4) .c8)) .c9
+          calcs: div (add (mul .c0 .c6) (mul .c3 .c8)) .c9; div (add (mul .c1 .c6) (mul .c4 .c8)) .c9
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: .b1
+            - var: c3
+              cal: .b3
+            - var: c4
+              cal: .b4
+            - var: c6
+              cal: .b6
+            - var: c8
+              cal: .b8
+            - var: c9
+              cal: mul .b2 .b7
+              wrongCals: ''
+        - template: Frac (Add (Mul .d0 'x') .d1 (Mul .d3 'x') .d4) .d9
+          calcs: div (add .d0 .d3) .d9; div (add .d1 .d4) .d9
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: d0
+              cal: mul .c0 .c6
+            - var: d1
+              cal: mul .c1 .c6
+            - var: d3
+              cal: mul .c3 .c8
+            - var: d4
+              cal: mul .c4 .c8
+            - var: d9
+              cal: .c9
+              wrongCals: ''
+        - template: Frac (Add (Mul .e0 'x') .e1) .e9
+          calcs: div .e0 .e9; div .e1 .e9
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: e0
+              cal: add .d0 .d3
+            - var: e1
+              cal: add .d1 .d4
+            - var: e9
+              cal: .d9
+              wrongCals: ''
+        - template: Frac (Add (Mul .f0 'x') .f1) .f9
+          calcs: div .f0 .f9; div .f1 .f9
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1;2;4;8
+          constraints:
+            - var: f0
+              cal: div .e0 (gcd .e0 .e1 .e9)
+            - var: f1
+              cal: div .e1 (gcd .e0 .e1 .e9)
+            - var: f9
+              cal: div .e9 (gcd .e0 .e1 .e9)

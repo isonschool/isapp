@@ -1,0 +1,109 @@
+sampleTex: '2 \times 5 + 4 \times 5 = 6 \times 5'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Times .a0 .a1) (Times .a2 .a1)
+          calcs: add (mul .a0 .a1) (mul .a2 .a1)
+          constraints:
+            - var: a0
+              min: 1
+              max: 3
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 4
+        - template: Add (WithPar (Add (* .b0 .b1))) (WithPar (Add (* .b2 .b3)))
+          calcs: add (mul .b0 .b1) (mul .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 3; 5
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 2; 4
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 6; 8
+            - var: b3
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 1; 9
+        - template: Add (Add (* .t0 .t1)) (Add (* .t2 .t3))
+          calcs: add (mul .t0 .t1) (mul .t2 .t3)
+          constraints:
+            - var: t0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 4; 8
+            - var: t1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 2; 9
+            - var: t2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 3; 6
+            - var: t3
+              cal: .b3
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 4; 7
+        - template: Times .c0 .c1
+          calcs: mul .c0 .c1
+          constraints:
+            - var: c0
+              cal: add .t0 .t2
+              wrongCals: add .t0 .t1; add .t0 .t1 1; add .t0 .t1 -1; add .t0 .t2 -1; add .t0 .t2 1
+            - var: c1
+              cal: div (add (mul .t0 .t1) (mul .t2 .t3)) (add .t0 .t2)
+              wrongCals: .t0; .t2; .t3; add .t0 .t1; add .t0 .t2; add .t0 .t2; add .t1 .t2
+    w:
+      expressions:
+        - template: Add (Times .a0 .a1) (Times .a0 .a2)
+          calcs: add (mul .a0 .a1) (mul .a0 .a2)
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 3
+            - var: a2
+              min: 1
+              max: 4
+        - template: Add (WithPar (Add (* .b0 .b1))) (WithPar (Add (* .b2 .b3)))
+          calcs: add (mul .b0 .b1) (mul .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 2; 4
+            - var: b1
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 3; 5
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 6; 7
+            - var: b3
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a1 .a2; add .a0 .a2; 8; 9
+        - template: Add (Add (* .t0 .t1)) (Add (* .t2 .t3))
+          calcs: add (mul .t0 .t1) (mul .t2 .t3)
+          constraints:
+            - var: t0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 1; 3
+            - var: t1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 7; 9
+            - var: t2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 2; 8
+            - var: t3
+              cal: .b3
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b1 .b2; add .b0 .b2; 4; 6
+        - template: Times .c0 .c1
+          calcs: mul .c0 .c1
+          constraints:
+            - var: c0
+              cal: div (add (mul .t0 .t1) (mul .t2 .t3)) (add .t0 .t2)
+              wrongCals: add .t0 .t1; add .t0 .t1 1; add .t0 .t1 -1; add .t0 .t2 -1; add .t0 .t2 1
+            - var: c1
+              cal: add .t0 .t2
+              wrongCals: .t0; .t2; .t3; add .t0 .t1; add .t0 .t2; add .t0 .t2; add .t1 .t2; 12

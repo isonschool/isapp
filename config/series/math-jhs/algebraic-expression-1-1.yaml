@@ -1,0 +1,131 @@
+sampleTex: 'x^{2} + xy - 3y^{2} | _{x = 3, y = 1} = 9'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Restrict (Add (Mul .a0 (Pow 'x' 2)) (Mul .a1 'x' 'y') (Mul .a2 (Pow 'y' 2))) (And (Equal 'x' .a3) (Equal 'y' .a4))
+          calcs: add (mul .a0 .a3 .a3) (mul .a1 .a3 .a4) (mul .a2 .a4 .a4)
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -4
+              max: 4
+              excepts: 0
+            - var: a3
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a4
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add (Mul .b0 (Pow .b3 2)) (Mul .b1 .b4 .b5) (Mul .b2 (Pow .b6 2))
+          calcs: add (mul .b0 .b3 .b3) (mul .b1 .b4 .b5) (mul .b2 .b6 .b6)
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+            - var: b3
+              cal: .a3
+              excepts: mul -1 .a3
+            - var: b4
+              cal: .a3
+            - var: b5
+              cal: .a4
+            - var: b6
+              cal: .a4
+              excepts: mul -1 .a4
+        - template: Add .c0 .c1 .c2
+          calcs: add .c0 .c1 .c2
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: mul .b0 .b3 .b3
+            - var: c1
+              cal: mul .b1 .b4 .b5
+            - var: c2
+              cal: mul .b2 .b6 .b6
+        - template: .d0
+          calcs: .d0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: add .c0 .c1 .c2
+    w:
+      expressions:
+        - template: Restrict (Add (Mul .a0 'x' 'y') (Mul .a1 'x') (Mul .a2 'y') .a3) (And (Equal 'x' .a4) (Equal 'y' .a5))
+          calcs: add (mul .a0 .a4 .a5) (mul .a1 .a4) (mul .a2 .a5) .a3
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -4
+              max: 4
+              excepts: 0
+            - var: a3
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a4
+              min: -3
+              max: 3
+              excepts: 0
+            - var: a5
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Add (Mul .b0 .b4 .b5) (Mul .b1 .b6) (Mul .b2 .b7) .b3
+          calcs: add (mul .b0 .b4 .b5) (mul .b1 .b6) (mul .b2 .b7) .b3
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+            - var: b3
+              cal: .a3
+            - var: b4
+              cal: .a4
+            - var: b5
+              cal: .a5
+            - var: b6
+              cal: .a4
+            - var: b7
+              cal: .a5
+        - template: Add .c0 .c1 .c2 .c3
+          calcs: add .c0 .c1 .c2 .c3
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: c0
+              cal: mul .b0 .b4 .b5
+            - var: c1
+              cal: mul .b1 .b6
+            - var: c2
+              cal: mul .b2 .b7
+            - var: c3
+              cal: .b3
+        - template: .d0
+          calcs: .d0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3
+          constraints:
+            - var: d0
+              cal: add .c0 .c1 .c2 .c3

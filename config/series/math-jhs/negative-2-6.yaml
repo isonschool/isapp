@@ -1,0 +1,64 @@
+sampleTex: '0.1 \div (-2) = - \frac{1}{20}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: -12
+              max: 12
+              excepts: 0
+            - var: h1
+              min: -12
+              max: 12
+              excepts: 0
+            - var: h2
+              choices: 1;10
+            - var: h3
+              choices: 1;10
+              min: div 2 .h2
+            - var: a0
+              cal: div .h0 .h2
+            - var: a1
+              cal: div .h1 .h3
+        - template: Div (Frac .b0 .b1) (Frac .b2 .b3)
+          calcs: div (div .b0 .b1) (div .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .h1; .h2; .h3; .a0; .a1; 1; -1; -10
+            - var: b1
+              cal: .h2
+              wrongCals: .h0; .h1; .h2; .h3; .a0; .a1; 1; -1; -10
+            - var: b2
+              cal: .h1
+              wrongCals: .h0; .h1; .h2; .h3; .a0; .a1; 1; -1; -10
+            - var: b3
+              cal: .h3
+              wrongCals: .h0; .h1; .h2; .h3; .a0; .a1; 1; -1; -10
+        - template: Times (Frac .c0 .c1) (Frac .c2 .c3)
+          calcs: mul (div .c0 .c1) (div .c2 .c3)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; .b3; mul -1 .b0; mul -1 .b2; -10; 3; -1
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; .b3; mul -1 .b0; mul -1 .b2; -10; 3; -1
+            - var: c2
+              cal: .b3
+              wrongCals: .b0; .b1; .b2; .b3; mul -1 .b0; mul -1 .b2; -10; 3; -1
+            - var: c3
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; .b3; mul -1 .b0; mul -1 .b2; -10; 3; -1
+        - template: Frac .d0 .d1
+          calcs: div .d0 .d1
+          constraints:
+            - var: d0
+              cal: mul .c0 .c2
+              wrongCals: .c0; .c1; .c2; .c3; mul -1 .c0 .c2; mul -1 .c1 .c3; mul -1 .c0 .c1; mul -1 .c0 .c3; mul -1 .c1 .c2; mul -1 .c2 .c3; -1; -10
+            - var: d1
+              cal: mul .c1 .c3
+              wrongCals: .c0; .c1; .c2; .c3; mul -1 .c0 .c2; mul -1 .c1 .c3; mul -1 .c0 .c1; mul -1 .c0 .c3; mul -1 .c1 .c2; mul -1 .c2 .c3; -1; -10

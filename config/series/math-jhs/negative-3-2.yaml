@@ -1,0 +1,67 @@
+sampleTex: '(+1.3) + (-0.1) = 1.2'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (WithPar (WithSign .a0)) (WithPar (WithSign .a1))
+          calcs: add .a0 .a1
+          constraints:
+            - var: h0
+              min: -99
+              max: 99
+            - var: h1
+              min: -99
+              max: 99
+            - var: h2
+              choices: 10;100
+            - var: a0
+              cal: div .h0 .h2
+            - var: a1
+              cal: div .h1 .h2
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1; 1; -1; 2; -2
+    w:
+      expressions:
+        - template: Sub (WithPar (WithSign .a0)) (WithPar (WithSign .a1))
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: -99
+              max: 99
+            - var: h1
+              min: -99
+              max: 99
+            - var: h2
+              choices: 10;100
+            - var: a0
+              cal: div .h0 .h2
+            - var: a1
+              cal: div .h1 .h2
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+            - var: b1
+              cal: mul -1 .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1; 1; -1; 2; -2

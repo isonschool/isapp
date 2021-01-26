@@ -1,0 +1,104 @@
+sampleTex: '3x+6=0 \Leftrightarrow x=-2'
+maxWidth: 439
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    u:
+      expressions:
+        - template: Equal (Add (Mul .a0 'x') .a1) (Add (Mul .a2 'x') .a3)
+          calcs: div (sub .a3 .a1) (sub .a0 .a2)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+              excepts: .a0
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              cal: sub (add (mul .a0 .h0) .a1) (mul .a2 .h0)
+        - template: Equal (Add (Mul .b0 'x') (Mul .b4 'x') .b1 .b5) (Add (Mul .b2 'x') (Mul .b6 'x') .b3 .b7)
+          calcs: div (sub (add .b3 .b7) (add .b1 .b5)) (sub (add .b0 .b4) (add .b2 .b6))
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b4
+              cal: mul -1 .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b5
+              cal: mul -1 .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b6
+              cal: mul -1 .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b7
+              cal: mul -1 .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+        - template: Equal (Mul .c0 'x') .c1
+          calcs: div .c1 .c0
+          constraints:
+            - var: c0
+              cal: sub (add .b0 .b4) (add .b2 .b6)
+              wrongCals: add .b3 .b7; mul -1 (add .b3 .b7); add .b1 .b5; mul -1 (add .b1 .b5); sub (add .b1 .b5) (add .b3 .b7); mul -1 (sub (add .b0 .b4) (add .b2 .b6)); add .b0 .b4; add .b2 .b6; mul -1 (add .b0 .b4); mul -1 (add .b2 .b6); add .b2 .b4; add .b1 .b3; add .b2 .b4 .b1 .b3; sub (add .b2 .b4) (add .b1 .b3); mul -1 (sub (add .b2 .b4) (add .b1 .b3)); 1; -1; 2; -2; .b0; .b1; .b2; .b3; .b4; .b5; .b6; .b7; mul -1 .b0; mul -1 .b1; mul -1 .b2; mul -1 .b3; mul -1 .b4
+            - var: c1
+              cal: sub (add .b3 .b7) (add .b1 .b5)
+              wrongCals: add .b3 .b7; mul -1 (add .b3 .b7); add .b1 .b5; mul -1 (add .b1 .b5); sub (add .b1 .b5) (add .b3 .b7); mul -1 (sub (add .b0 .b4) (add .b2 .b6)); add .b0 .b4; add .b2 .b6; mul -1 (add .b0 .b4); mul -1 (add .b2 .b6); add .b2 .b4; add .b1 .b3; add .b2 .b4 .b1 .b3; sub (add .b2 .b4) (add .b1 .b3); mul -1 (sub (add .b2 .b4) (add .b1 .b3)); 1; -1; 2; -2; .b0; .b1; .b2; .b3; .b4; .b5; .b6; .b7; mul -1 .b0; mul -1 .b1; mul -1 .b2; mul -1 .b3; mul -1 .b4
+        - template: Equal 'x' (Frac .d1 .d0)
+          calcs: div .d1 .d0
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: .c0; .c1; mul -1 .c0; mul -1 .c1; add .c0 .c1; mul .c0 .c1
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; .c1; mul -1 .c0; mul -1 .c1; add .c0 .c1; mul .c0 .c1
+    u':
+      expressions:
+        - constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+              excepts: .a0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: .a1
+    u'':
+      expressions:
+        - constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              cal: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: .a1

@@ -1,0 +1,24 @@
+sampleTex: '6 = 2 \times 3'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: .a0
+          calcs: .a0
+          constraints:
+            - var: h0
+              choices: 2;3;5;7;11
+            - var: h1
+              choices: 2;3;5;7;11
+              min: .h0
+            - var: a0
+              cal: mul .h0 .h1
+        - template: Times .b0 .b1
+          calcs: mul .b0 .b1
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .a0; add 1 .h0; add 1 .h1; add 2 .h0; add 2 .h1; 4; 6; 8; 9
+            - var: b1
+              cal: .h1
+              wrongCals: .a0; add 1 .h0; add 1 .h1; add 2 .h0; add 2 .h1; 4; 6; 8; 9

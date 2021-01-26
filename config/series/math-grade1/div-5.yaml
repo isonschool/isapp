@@ -1,0 +1,67 @@
+sampleTex: '9 \div 4 = 2 \ldots 1 \Leftrightarrow 9 = 4 \times 2 + 1'
+mth:
+  generators:
+    z:
+      relationTex: '\Leftrightarrow'
+      expressions:
+        - template: Equal (Div .a0 .a1) (WithRemainder .a2 .a3)
+          calcs: sub .a0 (add (mul .a1 .a2) .a3)
+          constraints:
+            - var: a1
+              min: 2
+              max: 9
+            - var: a2
+              min: 2
+              max: 9
+            - var: a3
+              min: 1
+              max: sub .a1 1
+            - var: a0
+              cal: add (mul .a1 .a2) .a3
+        - template: Equal .b0 (Add (Times .b1 .b2) .b3)
+          calcs: sub .b0 (add (mul .b1 .b2) .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+    w:
+      relationTex: '\Leftrightarrow'
+      expressions:
+        - template: Equal .a0 (Add (Times .a1 .a2) .a3)
+          calcs: sub .a0 (add (mul .a1 .a2) .a3)
+          constraints:
+            - var: a1
+              min: 2
+              max: 9
+            - var: a2
+              min: 2
+              max: 9
+            - var: a3
+              min: 1
+              max: sub .a1 1
+            - var: a0
+              cal: add (mul .a1 .a2) .a3
+        - template: Equal (Div .b0 .b1) (WithRemainder .b2 .b3)
+          calcs: sub .b0 (add (mul .b1 .b2) .b3)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; 1; 2; 3; add .a0 .a1; add .a0 .a2; add .a0 .a3; add .a1 .a2; add .a2 .a3; add .a1 .a3; add .a2 .a3; mul .a0 .a1; mul .a0 .a2; mul .a0 .a3; mul .a1 .a2; mul .a1 .a3; mul .a2 .a3

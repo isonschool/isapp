@@ -1,0 +1,34 @@
+sampleTex: '12 \div 3 \div 2 = 2'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div (Div .a0 .a1) .a2
+          calcs: div (div .a0 .a1) .a2
+          constraints:
+            - var: h0
+              min: 2
+              max: 10
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 2
+              max: 10
+            - var: a0
+              cal: mul .h0 .a1 .a2
+        - template: Div .b0 .b1
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .h0 .a2
+              wrongCals: .a0; .a1; .a2; add 1 .h0; mul .a0 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1; .h0
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add 1 .h0; mul .a0 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1; .h0
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: div .b0 .b1
+              wrongCals: add 1 .b1; add 1 .b0; mul .b0 .b1; add .b0 .b1; add .b1 1; add .b1 -1; .b0; .b1

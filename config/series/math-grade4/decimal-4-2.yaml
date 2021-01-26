@@ -1,0 +1,82 @@
+sampleTex: '1.6 \times 3.5 = 5.6'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: h0
+              min: 11
+              max: 99
+            - var: h1
+              choices: 10;100
+            - var: h2
+              min: 11
+              max: 99
+            - var: h3
+              choices: 10;100
+            - var: a0
+              cal: divf .h0 .h1
+            - var: a1
+              cal: divf .h2 .h3
+        - template: Times (WithPar (Div .b0 .b1)) (WithPar (Div .b2 .b3))
+          calcs: mul (divf .b0 .b1) (divf .b2 .b3)
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .h1; .h2; .h3; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b1
+              cal: .h1
+              wrongCals: .h0; .h1; .h2; .h3; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b2
+              cal: .h2
+              wrongCals: .h0; .h1; .h2; .h3; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+            - var: b3
+              cal: .h3
+              wrongCals: .h0; .h1; .h2; .h3; .a1; .a0; mul .h0 .a1; mul .h1 .a1; divf .h0 .h1; mul (divf .a1 .h1) (divf .h0 .h1); .a0; .a1
+        - template: Div (Div (Times .c0 .c2) .c1) .c3
+          calcs: divf (divf (mul .c0 .c2) .c1) .c3
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; .b3; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; .b3; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; .b3; mul 10 .b0; mul 10 .b1; mul 10 .b2
+            - var: c3
+              cal: .b3
+              wrongCals: .b0; .b1; .b2; .b3; mul 10 .b0; mul 10 .b1; mul 10 .b2
+        - template: Div (WithPar (Times .d0 .d2)) (WithPar (Times .d1 .d3))
+          calcs: divf (mul .d0 .d2) (mul .d1 .d3)
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2; mul .c0 .c2; mul .c2 .c3; mul .c1 .c3
+            - var: d1
+              cal: .c1
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2; mul .c0 .c2; mul .c2 .c3; mul .c1 .c3
+            - var: d2
+              cal: .c2
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2; mul .c0 .c2; mul .c2 .c3; mul .c1 .c3
+            - var: d3
+              cal: .c3
+              wrongCals: .c0; .c1; .c2; .c3; mul .c0 .c1; mul .c2 .c1; mul .c0 .c2; mul .c0 .c2; mul .c2 .c3; mul .c1 .c3
+        - template: Div .e0 .e1
+          calcs: divf .e0 .e1
+          constraints:
+            - var: e0
+              cal: mul .d0 .d2
+              wrongCals: .d0; .d1; .d2; .d3; mul .d0 .d1; mul .d2 .d1; mul .d0 .d2; mul .d0 .d2; mul .d2 .d3; mul .d1 .d3
+            - var: e1
+              cal: mul .d1 .d3
+              wrongCals: .d0; .d1; .d2; .d3; mul .d0 .d1; mul .d2 .d1; mul .d0 .d2; mul .d0 .d2; mul .d2 .d3; mul .d1 .d3
+        - template: .f0
+          calcs: .f0
+          constraints:
+            - var: f0
+              cal: divf .e0 .e1
+              wrongCals: .e0; .e1; divf (mul 10 .e0) .e1; divf (mul 100 .e0) .e1

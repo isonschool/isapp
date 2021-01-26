@@ -1,0 +1,99 @@
+sampleTex: '(+1) - (-2) + (+1) = 4'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (WithPar (WithSign .a0)) (WithPar (WithSign .a1)) (WithPar (WithSign .a2))
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+        - template: Add .b0 .b1 .b2
+          calcs: add .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1; 2; -2
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1 .b2
+              wrongCals: .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1; 1; -1; 2; -2
+    w:
+      expressions:
+        - template: Add (Sub (WithPar (WithSign .a0)) (WithPar (WithSign .a1))) (WithPar (WithSign .a2)); Sub (Add (WithPar (WithSign .a0)) (WithPar (WithSign .a2))) (WithPar (WithSign .a1))
+          calcs: add (sub .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+        - template: Add .b0 .b1 .b2; Add .b0 .b2 .b1
+          calcs: add .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+            - var: b1
+              cal: mul -1 .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1 .b2
+              wrongCals: .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1; 1; -1
+    u:
+      expressions:
+        - template: Sub (Sub (WithPar (WithSign .a0)) (WithPar (WithSign .a1))) (WithPar (WithSign .a2))
+          calcs: sub (sub .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+            - var: a1
+              min: -10
+              max: 10
+            - var: a2
+              min: -10
+              max: 10
+        - template: Add .b0 .b1 .b2; Add .b0 .b2 .b1
+          calcs: add .b0 .b1 .b2
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+            - var: b1
+              cal: mul -1 .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+            - var: b2
+              cal: mul -1 .a2
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 1; -1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1 .b2
+              wrongCals: .b0; .b1; add .b0 .b1; sub .b0 .b1; sub .b1 .b0; mul .b0 .b1; 1; -1

@@ -1,0 +1,168 @@
+sampleTex: 'y = 2x+3 \Rightarrow y |_{x=2} = 7'
+mth:
+  relationTex: '\Rightarrow'
+  generators:
+    z:
+      expressions:
+        - template: And (Equal 'y' (Add (Mul 'a' 'x') .a0)) (Equal (Restrict 'y' (Equal 'x' .a1)) .a2)
+          calcs: div (sub .a2 .a0) .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: .a0
+        - template: Equal .b2 (Add (Mul 'a' .b1) .b0)
+          calcs: div (sub .b2 .b0) .b1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0; .a2
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: .b0
+        - template: Equal (Mul 'a' .c1) .c0
+          calcs: div .c0 .c1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          constraints:
+            - var: c0
+              cal: sub .b2 .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+        - template: Equal 'a' (Frac .d0 .d1)
+          calcs: div .d0 .d1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; mul 2 $cal; 1; 2; 4; 8
+          constraints:
+            - var: d0
+              cal: .c0
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+    zz:
+      expressions:
+        - template: And (Equal 'y' (Add (Mul .a0 'x') 'b')) (Equal (Restrict 'y' (Equal 'x' .a1)) .a2)
+          calcs: sub .a2 (mul .a0 .a1)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Equal .b2 (Add (Mul .b0 .b1) 'b')
+          calcs: sub .b2 (mul .b0 .b1)
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Equal 'b' .c0
+          calcs: .c0
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          constraints:
+            - var: c0
+              cal: sub .b2 (mul .b0 .b1)
+    w:
+      relationTex: Equal
+      expressions:
+        - template: Let (Equal 'y' (Add (Mul .a0 'x') .a1)) (Restrict 'y' (Equal 'x' .a2))
+          calcs: add (mul .a0 .a2) .a1
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Add (Times .b0 .b2) .b1
+          calcs: add (mul .b0 .b2) .b1
+          wrongCals: .a0; .a1; 1; 2; 3; 4; mul -1 .a0; mul -1 .a1; mul .a0 .a1; mul -1 .a0 .a1; mul 2 .a0 .a1; mul -2 .a0 .a1; mul .a0 .a0; mul .a1 .a1; mul -1 .a0 .a0; mul -1 .a1 .a1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: .c0
+          calcs: .c0
+          wrongCals: mul .b0 .b2; add .b0 .b1 .b2; mul .b0 .b2 .b1; add 1 $cal; add -1 $cal; mul -1 $cal; add 10 $cal; add -10 $cal; 0; 10; 20
+          constraints:
+            - var: c0
+              cal: add (mul .b0 .b2) .b1
+    v:
+      relationTex: Equal
+      expressions:
+        - template: Let (Equal 'y' (Add (Mul .a0 'x') .a1)) (Restrict 'x' (Equal 'y' .a2))
+          calcs: div (sub .a2 .a1) .a0
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: .a1
+        - template: Frac (Sub .b2 .b1) .b0
+          calcs: div (sub .b2 .b1) .b0
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          ignore: '== .b2 .b1'
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+        - template: Frac .c1 .c0
+          calcs: div .c1 .c0
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; 1; 2; 3; 4; -1; -2; -3; -4; mul 2 $cal; mul -2 $cal; mul -1 $cal
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: sub .b2 .b1
+              excepts: 0

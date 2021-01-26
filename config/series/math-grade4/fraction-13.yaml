@@ -1,0 +1,35 @@
+sampleTex: '\frac{2}{3} \times \frac{1}{4} \times \frac{3}{5} = \frac{1}{10}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Frac .a0 .a1) (Frac .a2 .a3) (Frac .a4 .a5)
+          calcs: mul (div .a0 .a1) (div .a2 .a3) (div .a4 .a5)
+          constraints:
+            - var: a0
+              min: 1
+              max: 10
+            - var: a1
+              min: 1
+              max: 10
+            - var: a2
+              min: 1
+              max: 10
+            - var: a3
+              min: 1
+              max: 10
+            - var: a4
+              min: 1
+              max: 10
+            - var: a5
+              min: 1
+              max: 10
+        - template: Frac .b0 .b1
+          calcs: div .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a0 .a2 .a4
+              wrongCals: .a0; .a1; .a2; .a3; .a4; .a5; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 2; 3
+            - var: b1
+              cal: mul .a1 .a3 .a5
+              wrongCals: .a0; .a1; .a2; .a3; .a4; .a5; mul .a0 .a2; add (mul .a0 .a2) .a1 1; add (mul .a0 .a2) .a1 2; add .a0 .a1; 2; 3

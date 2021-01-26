@@ -1,0 +1,46 @@
+sampleTex: 'x \times x \times x = x^{3}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (* .a0 'x')
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 2
+              max: 5
+        - template: Pow 'x' .b0
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    w:
+      expressions:
+        - template: Times 'x' 'x' .a0; Times .a0 'x' 'x'; Times 'x' .a0 'x'
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Mul .b0 (Pow 'x' 2)
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    u:
+      expressions:
+        - template: Times (* .a0 (Add 'a' 'b'))
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 2
+              max: 5
+        - template: Pow (Add 'a' 'b') .b0
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0

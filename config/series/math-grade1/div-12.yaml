@@ -1,0 +1,49 @@
+sampleTex: '600 \div 30 = 20'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 2
+              max: 9
+            - var: h1
+              choices: 10;100
+            - var: h2
+              min: 2
+              max: 9
+            - var: h3
+              max: .h1
+              choices: 10;100
+            - var: a1
+              cal: mul .h2 .h3
+            - var: a0
+              cal: mul .h0 .h1 .a1
+        - template: Div (Div .b0 .b1) (Div .b2 .b1)
+          calcs: div (mul .b0 .b1) (mul .b2 .b1)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .h0; .h1; .h2; .h3; mul .h0 .h1; mul .h0 .h1 .h2; mul .h0 .h1 .h2 .h3; mul .a0 .a1; 1; 2; 3
+            - var: b1
+              cal: .h2
+            - var: b2
+              cal: .a1
+              wrongCals: .a0; .a1; .h0; .h1; .h2; .h3; mul .h0 .h1; mul .h0 .h1 .h2; mul .h0 .h1 .h2 .h3; mul .a0 .a1; 1; 2; 3
+        - template: Div .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: div .b0 .b1
+              wrongCals: .b0; .b1; .b2; div .b0 .b1; div .b2 .b1; add .b0 .b1; add .b0 .b2; add .b1 .b2; 1; 10; 100
+            - var: c1
+              cal: div .b2 .b1
+              wrongCals: .b0; .b1; .b2; div .b0 .b1; div .b2 .b1; add .b0 .b1; add .b0 .b2; add .b1 .b2; 1; 10; 100
+        - template: .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: div .c0 .c1
+              wrongCals: .c0; .c1; add .c0 .c1; mul .c0 .c1; add 1 (div .c0 .c1); add -1 (div .c0 .c1); 1; 10

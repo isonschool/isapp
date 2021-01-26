@@ -1,0 +1,107 @@
+sampleTex: '6 = 2 \times 3 \Leftrightarrow 6 \div 3 = 2'
+mth:
+  generators:
+    w:
+      relationTex: \Leftrightarrow
+      expressions:
+        - template: Equal .a2 (Div .a0 .a1)
+          calcs: sub .a0 (mul .a1 .a2)
+          constraints:
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .a1 .a2
+        - template: Equal (Times .b1 .b2) .b0; Equal (Times .b2 .b1) .b0; Equal .b0 (Times .b1 .b2); Equal .b0 (Times .b2 .b1)
+          calcs: sub .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b2
+              cal: .a2
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+    z:
+      relationTex: \Leftrightarrow
+      expressions:
+        - template: Equal .a0 (Times .a1 .a2)
+          calcs: sub .a0 (mul .a1 .a2)
+          constraints:
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .a1 .a2
+        - template: Equal (Div .b0 .b1) .b2; Equal (Div .b0 .b2) .b1; Equal .b2 (Div .b0 .b1); Equal .b1 (Div .b0 .b2)
+          calcs: sub .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b2
+              cal: .a2
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+    u:
+      relationTex: \Leftrightarrow
+      expressions:
+        - template: Equal (Div .a0 .a1) .a2
+          calcs: sub .a0 (mul .a1 .a2)
+          constraints:
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .a1 .a2
+        - template: Equal (Times .b1 .b2) .b0; Equal (Times .b2 .b1) .b0; Equal .b0 (Times .b1 .b2); Equal .b0 (Times .b2 .b1)
+          calcs: sub .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b2
+              cal: .a2
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+    v:
+      relationTex: \Leftrightarrow
+      expressions:
+        - template: Equal (Times .a1 .a2) .a0
+          calcs: sub .a0 (mul .a1 .a2)
+          constraints:
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .a1 .a2
+        - template: Equal (Div .b0 .b1) .b2; Equal (Div .b0 .b2) .b1; Equal .b2 (Div .b0 .b1); Equal .b1 (Div .b0 .b2)
+          calcs: sub .b0 (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b1
+              cal: .a1
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7
+            - var: b2
+              cal: .a2
+              wrongCals: .a1; add .a0 .a1; mul .a0 .a1; add 1 .a0; add -1 .a0; 3; 5; 7

@@ -1,0 +1,96 @@
+en	addition	subtraction	multiplication	division	decimal	fraction	exponent	expansion	limit	equation	basics	negative	negative numbers	polynomial	proportional	square root	ratio	compound fraction	algebraic expression
+ja	たしざん	ひきざん	かけざん	わりざん	小数	分数	指数	展開	極限	方程式	基本	負	負の数	多項式	比例	平方根	比	繁分数	代数式
+af	Optelling	aftrek	vermenigvuldiging	deling	desimale	fraksie	eksponent	uitbreiding	limiet	vergelyking	basiese beginsels	negatiewe	negatiewe nommers	polinoom	proporsionele	vierkantswortel	verhouding	saamgestelde fraksie	algebraïese uitdrukking
+az	Toplama	Çıxma	vurma	bölmə	onluq	fraksiya	eksponent	genişləndirilməsi	sərhəd	tənlik	əsasları	mənfi	mənfi nömrələri	çoxhədli	proporsional	kvadrat kök	nisbət	mürəkkəb fraksiya	cəbri ifadə
+id	penambahan	pengurangan	perkalian	afdeling	desimal	Fraksi	eksponen	ekspansi	membatasi	persamaan	dasar-dasar	negatif	angka negatif	polinomial	sebanding	akar pangkat dua	perbandingan	fraksi senyawa	ekspresi aljabar
+ms	Penambahan	penolakan	pendaraban	Bahagian	perpuluhan	pecahan	eksponen	pengembangan	had	persamaan	asas-asas	negatif	nombor negatif	polinomial	berkadar	punca kuasa dua	nisbah	pecahan kompaun	ungkapan algebra
+bs	sabiranje	oduzimanje	množenje	podjela	decimalni	frakcija	eksponent	ekspanzije	granica	jednačina	osnove	negativan	negativne brojeve	polinom	proporcionalan	kvadratni korijen	odnos	spoj frakcija	algebarski izraz
+ca	suma	resta	multiplicació	divisió	decimal	fracció	exponent	expansió	límit	equació	l'essencial	negatiu	els números negatius	polinomi	proporcional	arrel quadrada	proporció	fracció compost	expressió algebraica
+cs	sčítání	odčítání	násobení	Divize	desetinný	frakce	exponent	expanze	omezit	rovnice	základy	negativní	záporná čísla	polynomický	úměrný	odmocnina	poměr	sloučenina frakce	výraz algebraické
+da	Ud	subtraktion	multiplikation	division	decimal	fraktion	eksponent	ekspansion	begrænse	ligning	basics	negativ	negative tal	polynomium	proportional	kvadrat rod	forhold	forbindelse fraktion	algebraisk udtryk
+de	Addition	Subtraktion	Multiplikation	division	Dezimal	Fraktion	Exponent	Expansion	Grenze	Gleichung	Wesentliche	Negativ	negative Zahlen	Polynom	proportional	Quadratwurzel	Verhältnis	Verbindung Fraktion	Algebraischer Ausdruck
+et	liitmise	lahutamine	korrutamine	rajoon	koma	fraktsioonist	eksponendi	paisumise	piir	võrrand	põhitõdesid	negatiivse	negatiivsete numbrite	polünoom	proportsionaalne	ruutjuur	suhe	ühend fraktsioon	algebraline väljend
+es	adición	sustracción	multiplicación	división	decimal	fracción	exponente	expansión	límite	ecuación	lo esencial	negativo	números negativos	polinomio	proporcional	raíz cuadrada	proporción	fracción compuesto	expresión algebraica
+eu	Batuketa	kenketa	biderketa	zatiketa	hamartarrekin	zatiki	adierazgarri	hedapen	muga	ekuazio	oinarriak	negatiboa	zenbaki negatiboak	polinomio	proportzionala	erro karratu	ratio	konposatu frakzioa	algebraiko adierazpena
+fil	addition	subtraction	pagpaparami	division	desimal	bahagi	exponent	Pagpapalawak	limit	ekwasyon	Mga pangunahing kaalaman	negatibong	negatibong numero	polinomyal	proporsyonal	square root	proporsyon	compound bahagi	algebraic expression
+fr	une addition	soustraction	multiplication	division	décimal	fraction	exposant	expansion	limite	équation	notions de base	négatif	nombres négatifs	polynôme	proportionnel	racine carrée	rapport	fraction composé	expression algébrique
+gl	suma	subtracción	multiplicación	división	decimal	fracción	expoñente	expansión	límite	ecuación	nocións básicas	negativo	números negativos	polinomial	proporcional	raíz cadrada	proporción	fracción de composto	expresión alxébrica
+hr	zbrajanje	oduzimanje	množenje	Podjela	decimal	Frakcija	eksponent	Širenje	ograničiti	jednadžba	Osnove	negativni	negativni brojevi	polinom	proporcionalan	korijen	omjer	spoj frakcije	izraz algebarski
+zu	Ngaphezu	Ukuhlanganisa nokukhupha	ukubuyabuyelela	division	idesimali	ingxenyenamba	okungekho	ukunwetshwa	umkhawulo	kwesibalo	okungumsu	ezimbi	izinombolo engemihle	polynomial	ezilinganiselwe	i-Square Root	isilinganiso	ingxenyenamba kwakwakhe	algebraic inkulumo
+is	samlagning	frádráttur	margföldun	deild	aukastaf	brot	Veldisvísir	stækkun	mörk	jafnan	grunnatriði	neikvæður	neikvæðar tölur	margliða	í réttu hlutfalli	kvaðratrót	hlutfall	efnasamband brot	reiknisegða
+it	addizione	sottrazione	moltiplicazione	divisione	decimale	frazione	Esponente	espansione	limite	equazione	nozioni di base	negativo	numeri negativi	polinomio	proporzionale	radice quadrata	rapporto	frazione composto	espressione algebrica
+sw	Kujumlisha	kutoa	kuzidisha	mgawanyiko	Nukta	sehemu	exponent	upanuzi	kikomo	equation	mambo ya msingi	hasi	namba hasi	polynomial	sawia	kipeo	uwiano	sehemu kiwanja	algebraic kujieleza
+lv	saskaitīšana	atņemšana	pavairošana	nodaļa	decimāldaļskaitlis	frakcija	eksponents	izplešanās	limits	vienādojums	pamati	negatīvs	negatīvie skaitļi	polinoms	proporcionāls	kvadrātsakne	proporcija	savienojums frakcija	algebrisks izteiksme
+lt	sudėties	atimtis	daugyba	skyrius	dešimtainis	frakcija	eksponentė	plėtimosi	riba	lygtis	pagrindai	neigiamas	neigiami skaičiai	daugianario	proporcingas	kvadratinė šaknis	santykis	junginys frakcija	algebrinė išraiška
+hu	összeadás	kivonás	szorzás	osztály	decimális	frakciót	kitevő	tágulási	határ	egyenlet	alapjai	negatív	negatív számok	polinom	arányos	négyzetgyök	hányados	vegyület frakciót	algebrai kifejezés
+nl	optellen	aftrekking	vermenigvuldiging	divisie	decimale	fractie	exponent	uitbreiding	begrenzing	vergelijking	basics	negatief	negatieve getallen	polynoom	proportioneel	vierkantswortel	verhouding	verbinding fractie	algebraïsche uitdrukking
+no	addisjon	subtraksjon	multiplikasjon	divisjon	desimal	fraksjonen	eksponent	utvidelse	grense	ligningen	Grunnleggende	negativ	negative tall	polynom	proporsjonale	kvadratrot	forhold	forbindelsen fraksjon	algebraisk uttrykk
+uz	Qo'shish	ayiruv	oshirish	bo'limi	o'nlik	ulushi	namuna	kengaytirish	chegara	tenglama	asoslari	salbiy	salbiy raqamlari	ko'phad	proportsional	kvadrat ildiz	nisbat	aralash kasr	algebraik ifoda
+pl	Dodawanie	odejmowanie	mnożenie	Podział	dziesiętny	Frakcję	Wykładnik	Ekspansja	limit	równanie	podstawy	Ujemną wartość	liczby ujemne	wielomian	proporcjonalny	pierwiastek kwadratowy	stosunek	frakcję związek	wyrażenie algebraiczne
+pt	Adição	subtração	multiplicação	divisão	decimal	fracção	expoente	expansão	limite	equação	Fundamentos	negativo	números negativos	polinomial	proporcional	raiz quadrada	Razão	fracção de composto	expressão algébrica
+ro	adunare	scădere	multiplicare	divizare	zecimal	fracțiune	exponent	expansiune	limită	ecuaţie	Elementele de bază	negativ	numere negative	polinomul	proporţional	rădăcină pătrată	raport	fracție compus	expresie algebrica
+sq	shtim	zbritje	shumëzim	Ndarja	decimal	fraksion	shprehje	zgjerim	limit	ekuacion	bazat	negative	numrat negative	polinom	proporcional	rrenja katrore	raport	fraksion komponim	algjebrike shprehje
+sk	sčítanie	odčítanie	násobenie	Divízia	desatinný	frakcie	exponent	expanzia	limit	rovnice	základy	negatívna	záporné čísla	polynóm	úmerný	odmocnina	pomer	zlúčenina frakcie	výraz algebraické
+sl	Seštevanje	odštevanje	množenje	Delitev	decimalno	frakcija	eksponent	širitev	omejitev	enačba	osnove	negativno	negativne številke	polinom	sorazmerna	kvadratni koren	razmerje	Spojina frakcija	algebrski izraz
+fi	yhteen-ja	vähennyslasku	kertolasku	jako	desimaalin	jae	eksponentti	laajennus	raja	yhtälö	perusasiat	negatiivinen	negatiiviset luvut	polynomi	verrannollinen	neliöjuuri	suhde	yhdiste osa	lausekkeella
+sv	addition	subtraktion	multiplikation	division	decimal-	fraktion	exponent	expansionen	begränsa	ekvation	grunderna	negationen	negativa tal	polynom	proportionell	roten ur	förhållande	förening fraktion	algebraiska uttryck
+vi	Phép cộng	Phép trừ	phép nhân	phân chia	số thập phân	tỉ lệ	mũ	mở rộng	giới hạn	phương trình	cơ bản	tiêu cực	số âm	đa thức	cân đối	căn bậc hai	tỉ lệ	phần hợp chất	biểu thức đại số
+tr	toplama	çıkarma	çarpma işlemi	bölme	ondalık	fraksiyon	üs	Genişletme	sınır	denklem	temeller	Negatif	negatif sayılar	polinom	orantılı	kare kök	oran	bileşik kesir	cebirsel ifade
+be	складанне	адніманне	множанне	падзел	дзесятковы	Фракцыя	паказчык	пашырэнне	мяжа	раўнанне	асновы	адмоўная	адмоўныя лікі	мнагачлена	прапарцыйны	квадратны корань	суадносіны	злучэнне фракцыі	выраз алгебраічнай
+bg	събиране	изваждане	умножение	разделение	десетичен	фракция	експонента	разширение	лимит	уравнение	Основи	отрицателно	отрицателни числа	полином	пропорционален	корен квадратен	съотношение	съединение фракция	изразяване алгебрични
+ky	толуктоо	кемитүү	көбөйтүү	бөлүү	ондук	бөлчөк	даражанын	кеңейүү	чек	барабардык	негиздери	терс	терс сандар	көп мүчө	жараша	квадраттык тамыр	катышы	татаал бөлчөк	алгебралык туюнтма
+kk	қосу	азайту	көбейту	бөлімшесі	ондық	фракциясы	көрсеткіш	кеңейту	шектеу	теңдеу	негіздері	теріс	теріс сандар	шелі	пропорционалды	шаршы түбірі	арақатынас	Күрделі фракциясы	алгебралық өрнек
+mk	собирање	одземање	множење	поделба	децималниот	дел	експонент	експанзија	граница	равенка	основите	негативни	негативни броеви	полином	пропорционална	квадратен корен	сооднос	соединение дел	изразување алгебарски
+mn	нэмэх	хасах	үржүүлэх	хэлтэс	аравтын	хэсэг	илтгэгч	өргөтгөх	хязгаар	тэгшитгэл	үндсүүд	сөрөг	сөрөг тоо	олон гишүүнт	пропорциональ	квадрат язгуур	харьцаа	нийлмэл хэсэг	алгебрийн илэрхийлэл
+ru	сложение	вычитание	умножение	разделение	десятичный	Фракция	показатель	расширение	предел	уравнение	основы	отрицательная	отрицательные числа	многочлен	пропорциональный	квадратный корень	соотношение	соединение фракции	алгебраическое выражение
+sr	сабирање	одузимање	множење	подела	децималан	фрацтион	екпонент	експанзија	граница	једначина	Основе	негативе	негативни бројеви	полином	пропорционалан	квадратни корен	однос	једињење фрацтион	алгебраиц екпрессион
+uk	додавання	віднімання	множення	поділ	десятковий	Фракція	показник	розширення	межа	рівняння	основи	негативна	негативні числа	многочлен	пропорційний	квадратний корінь	співвідношення	з'єднання фракції	вираз алгебри
+el	πρόσθεση	αφαίρεση	πολλαπλασιασμός	διαίρεση	δεκαδικός	κλάσμα	εκθέτης	επέκταση	όριο	εξίσωση	βασικά	αρνητική	αρνητικούς αριθμούς	πολυώνυμος	αναλογικά	τετραγωνική ρίζα	αναλογία	ένωση κλάσμα	αλγεβρική παράσταση
+hy	Գումարում	հանում	բազմապատկում	բաժանում	տասնորդական	ֆրակցիա	Աստիճանը	ընդլայնումը	սահման	հավասարում	հիմունքներ	բացասական	բացասական թվեր	polynomial	համամասնական	քառակուսի արմատ	հարաբերակցություն	բարդ մասն	հանրահաշվական Արտահայտությունը
+he	חיבור	חִסוּר	כֶּפֶל	חלוקה	נקודה	חלק	מעריך	הרחבה	לְהַגבִּיל	משוואה	יסודות	שלילי	מספרים שליליים	רַב אֵיבָר	יַחֲסִי	שורש ריבועי	יַחַס	חלק במתחם	ביטוי אלגברי
+ur	جمع	تفریق	ضرب	ڈویژن	اعشاری	حصہ	مائپادک	توسیع	حد	مساوات	مبادیات	منفی	منفی اعداد	بہپد	متناسب	جذر المربع	تناسب	کمپاؤنڈ حصہ	الجبری اظہار
+ar	جمع	طرح	عمليه الضرب	تقسيم	عدد عشري	جزء	الأس	توسع	حد	معادلة	مبادئ	سلبية	الأرقام السالبة	متعدد الحدود	متناسب	الجذر التربيعي	نسبة	جزء مركب	تعبير جبري
+fa	جمع	منها کردن	ضرب	تقسیم	اعشاری	کسری	توان	گسترش	حد	معادله	اصول اولیه	منفی	اعداد منفی	چند جملهای	متناسب	ریشه دوم	نسبت	کسری ترکیب	عبارت جبری
+ne	जोड	घटाउ	गुणन	विभाजन	दशमलव	अंश	प्रतिपादक	विस्तार	सीमा	समीकरण	मूल कुराहरु	नकारात्मक	नकारात्मक संख्या	polynomial	समानुपातिक	वर्ग मूल	अनुपात	मिश्रित अंश	बीजीय अभिव्यक्ति
+mr	बेरीज	वजाबाकी	गुणाकार	विभागणी	दशांश	अपूर्णांक	निपुण	विस्तार	मर्यादा	समीकरण	मूलतत्त्वे	नकारात्मक	नकारात्मक क्रमांक	polynomial	प्रमाणात	वर्गमुळ	प्रमाण	कंपाऊंड अपूर्णांक	बीजगणितातील अभिव्यक्ती
+hi	जोड़	घटाव	गुणन	विभाजन	दशमलव	अंश	प्रतिपादक	विस्तार	सीमा	समीकरण	मूल बातें	नकारात्मक	ऋणात्मक संख्याओं	बहुपद	आनुपातिक	वर्गमूल	अनुपात	यौगिक अंश	बीजगणतीय अभिव्यक्ति
+bn	যোগফল	বিয়োগ	গুণ	বিভাগ	দশমিক	ভগ্নাংশ	এক্সপোনেন্ট	সম্প্রসারণ	সীমা	সমীকরণ	মূলসূত্র	নেতিবাচক	ঋণাত্মক সংখ্যা	বহুপদ	সমানুপাতিক	বর্গমূল	অনুপাত	যৌগ ভগ্নাংশ	বীজগাণিতিক এক্সপ্রেশন
+pa	ਜੋੜ	ਘਟਾਉ	ਗੁਣਾ	ਡਵੀਜ਼ਨ	ਦਸ਼ਮਲਵ	ਭਾਗਅੰਸ਼	ਵਕੀਲ	ਵਿਸਥਾਰ	ਸੀਮਾ	ਸਮੀਕਰਨ	ਮੂਲ	ਨਕਾਰਾਤਮਕ	ਨਕਾਰਾਤਮਕ ਨੰਬਰ	ਪੌਲੀਨੌਮਿਯਲ	ਅਨੁਪਾਤੀ	ਵਰਗਮੂਲ	ਅਨੁਪਾਤ	ਅਹਾਤੇ ਭਾਗਅੰਸ਼	ਬੀਿ ਸਮੀਕਰਨ
+gu	સરવાળો	બાદબાકી	ગુણાકાર	ડિવિઝન	દશાંશ	અપૂર્ણાંક	હિમાયતી	વિસ્તરણ	મર્યાદા	સમીકરણ	બેઝિક્સ	નકારાત્મક	ઋણ સંખ્યાઓ	બહુપદી	પ્રમાણસર	વર્ગમૂળ	ગુણોત્તર	સંયોજન અપૂર્ણાંક	બીજગણિતીય અભિવ્યક્તિ
+ta	கூட்டல்	கழித்தல்	பெருக்கல்	பிரிவு	தசம	பின்னம்	அடுக்கிலும்	விரிவாக்கம்	அளவு	சமன்பாடு	அடிப்படைகளை	எதிர்மறையான	எதிர்மறை எண்கள்	அடுக்குக்கோவை	விகிதாசார	சதுர ரூட்	விகிதம்	கூட்டுப்பின்னம்	இயற்கணித வெளிப்பாடு
+te	కూడిక	వ్యవకలనం	గుణకారం	విభాగం	దశాంశ	భిన్నం	ఆనవాలు	విస్తరణ	పరిమితి	సమీకరణం	బేసిక్స్	ప్రతికూల	ప్రతికూల సంఖ్యలు	బహుపది	దామాషా	వర్గమూలం	నిష్పత్తి	సమ్మేళనం భిన్నం	బీజగణిత వ్యక్తీకరణ
+kn	ಸಂಕಲನ	ವ್ಯವಕಲನ	ಗುಣಾಕಾರ	ಭಾಗಾಕಾರ	ದಶಮಾಂಶ	ಭಾಗ	ಘಾತ	ವಿಸ್ತರಣೆ	ಮಿತಿ	ಸಮೀಕರಣದ	ಮೂಲಭೂತ	ನಕಾರಾತ್ಮಕ	ಋಣಾತ್ಮಕ ಸಂಖ್ಯೆಗಳ	ಬಹುಪದೀಯ	ಪ್ರಮಾಣಾನುಗುಣ	ವರ್ಗ ಮೂಲ	ಅನುಪಾತ	ಸಂಯುಕ್ತ ಭಾಗ	ಬೀಜಗಣಿತದ ಅಭಿವ್ಯಕ್ತಿ
+ml	സങ്കലനം	വ്യവകലനം	ഗുണനം	ഡിവിഷൻ	ദശാംശ	അംശം	എക്സ്പോണൻറ്	വികാസം	പരിധി	സമവാക്യം	അടിസ്ഥാനകാര്യങ്ങൾ	നെഗറ്റീവ്	നെഗറ്റീവ് നമ്പറുകൾ	ബഹുപദസമവാക്യങ്ങളെക്കുറിച്ചുള്ള	അനുപാതത്തിലായിരിക്കും	സ്ക്വയർ റൂട്ട്	അനുപാതം	കോമ്പൗണ്ട് ഫ്രാക്ഷൻ	ബീജീയ പദപ്രയോഗം
+si	එකතු කිරීම	අඩු කිරීම	ගුණ කිරීමේ	අංශය	දශම	භාගය	නිපුනයා	පුළුල්	සීමාව	සමීකරණය	මූලික	සෘණ	සෘණ සංඛ්යා	බහු පද	සමානුපාතික	වර්ගමුලය	අනුපාතය	සංයෝගයක් භාගය	වීජීය ප්රකාශනයක්
+th	การบวก	การลบ	การคูณ	ส่วน	ทศนิยม	ส่วน	ตัวแทน	การขยายตัว	จำกัด	สมการ	พื้นฐาน	เชิงลบ	ตัวเลขที่ติดลบ	พหุนาม	สัดส่วน	รากที่สอง	อัตราส่วน	ส่วนสารประกอบ	การแสดงออกเกี่ยวกับพีชคณิต
+lo	ນອກຈາກນັ້ນ	ການຫັກລົບ	ຄູນ	ພະແນກ	ທະສະນິຍົມ	ສ່ວນ	ອະທິບາຍ	ການຂະຫຍາຍຕົວ	ກໍານົດຂອບເຂດ	ສົມຜົນ	ຄວາມຮູ້ພື້ນຖານ	ລົບ	ຈໍານວນລົບ	ພະຫຸນາມ	ສັດສ່ວນ	ຮາກ​ຂັ້ນ​ສອງ	ອັດຕາສ່ວນ	ສ່ວນປະສົມ	ການສະແດງອອກພຶຊະຄະນິດ
+my	အပေါင်း	အနုတ်	မြှောက်	ဌာနခွဲ	ဒဿမ	အစိတ်အပိုင်း	ထပ်ကိန်း	တိုးချဲ့	ကန့်သတ်	ညီမျှခြင်း	အခြေခံ	အနုတ်လက္ခဏာ	အနုတ်လက္ခဏာနံပါတ်များ	polynomial	အချိုးကျ	စတုရန်းအမြစ်	အချိုးအစား	ဒြပ်ပေါင်းများအစိတ်အပိုင်း	algebra စကားရပ်
+ka	მიმატება	გამოკლება	გამრავლება	სამმართველოს	ათობითი	ფრაქციას	მაჩვენებლებით	გაფართოების	ზღვარი	განტოლება	საფუძვლები	უარყოფით	უარყოფითი ნომრები	მრავალწევრის	პროპორციული	კვადრატული ფესვი	თანაფარდობა	ნაერთი ფრაქციას	ალგებრული გამოხატვის
+am	በተጨማሪም	መቀነስ	ማባዛት	ክፍል	አስርዮሽ	ክፍልፋይ	ሃይለ	የማስፋፊያ	ወሰን	ቀመር	መሠረታዊ	አሉታዊ	አሉታዊ ቁጥሮች	የጥረዛ	ተመጣጣኝ	ካሬ የስር	ተመጣጣኝነት	ውሁድ ክፍልፋይ	በአልጀብራዊ መግለጫ
+km	ប្រមាណវិធីបូក	ប្រមាណវិធីដក	គុណ	ប្រមាណវិធីចែក	ទសភាគ	ប្រភាគ	និទស្សន្ត	ការពង្រីក	ដែនកំណត់	សមីការ	មូលដ្ឋាន	អវិជ្ជមាន	លេខអវិជ្ជមាន	ពហុធា	សមាមាត្រ	ឫស​ការេ	សមាមាត្រ	ប្រភាគបរិវេណ	ការបញ្ចេញមតិពិជគណិត
+zh-Hans	加成	减法	乘法	除法	十进制	分数	指数	扩展	极限	方程	基本	负	负数	多项式	比例	平方根	比	繁分数	代数表达式
+zh-Hant	加成	減法	乘法	除法	十進制	分數	指數	擴展	極限	方程	基本	負	負數	多項式	比例	平方根	比	繁分數	代數表達式
+ko	덧셈	뺄셈	곱셈	분할	소수	분획	지수	확장	한도	방정식	기초	음의	음수	다항식	비례항	제곱근	비율	화합물 분획	대수 표현
+co	Campu Tondu	subtraction	municipal	classa	decimali	Fraction	maggiuri	espansione	Pettirussu	iquazzioni	principii	negativu	numari negativi	polynomial	prupurziunali	square root	inquadramentu	Fraction cumposti	sprissioni algebbrica
+fy	addition	subtraction	fermannichfâldigjen	division	nederlân	fraksje	eksponint	útwreiding	beheine	fergeliking	basics	negatyf	negative getallen	veelterm	evenredich	woartel	ferhâlding	gearstalde fraksje	algebraic ekspresje
+ha	Bugu da kari	subtraction	multiplication	division	gidan goma	sulusi da murabba'i	exponent	fadada	iyaka	lissafi	kayan yau da kullum	korau	korau lambobin	polynomial	gwargwado	square tushen	rabo	fili sulusi da murabba'i	algebraic magana
+ig	mgbakwunye	mwepu	multiplication	nkewa	ntụpọ	nta	exponent	mgbasa	ịgba	akụkụ	Basics	na-adịghị mma	na-adịghị mma na nọmba	polynomial	proportional	square mgbọrọgwụ	ruru	compound nta	algebraic okwu
+jv	Saliyane	ping	pingan	divisi	desimal	bagian sekedhik	pecahan	expansion	watesan	rumus	kerja	negatif	nomer negatif	polimial	ceceg	ROOT kothak	aspek	bagian sekedhik senyawa	expression aljabar
+ku	pitir	jexistinî	multiplication	dabeşkirina	hejmarên dehek de	fraction	baxê	berfirehkirina	sînorkirin	hevsengiyekê	perjewendiya	neyînî	hejmarê kêmek	ser xêrê be	nîsbet	root square	têkilî	fraction, terkîb	ramanê ceberî
+lb	Zousätzlech	subtraction	ëmmer méi	Divisioun	Dezimalzuel	Ëmwandlung	exponent	Expansioun	limitéiert	Equatioun	Grondlage	negativ	negativ Zuelen	polynomial	proportional	Feld root	Verhältnis	Facettenaen Ëmwandlung	glécklech Ausdrock
+mg	koa	subtraction	fampitomboana	fizarana	decimal	ampahany	Exponent	fanitarana	fetra	mira	fototra	ratsy	ratsy isa	polynomial	mitanila	toradroa faka	tahan'ny	iombonana amin'ny ampahany	algebraic teny
+mt	Barra minn hekk	tnaqqis	multiplikazzjoni	diviżjoni	deċimali	frazzjoni	esponent	espansjoni	limitu	ekwazzjoni	baŜi	negattiva	numri negattivi	polinomjali	proporzjonali	għerq kwadrat	proporzjon	frazzjoni kompost	espressjoni alġebrin
+mi	tua	tangohanga	whakarea	wehenga	ira	hautanga	taupū	roha	rohe	whārite	taketake	kino	tau tōraro	pūrau	hautanga	pakiaka tapawha	ōwehenga	hautanga pūhui	kīanga taurangi
+ps	سربېره	تفريق	ضرب	فرقې	لسيال	برخه	exponent	پراختیا	حد	معادله	اساساتو	منفي	منفی شميرو	polynomial	متناسب	مربع شکل ریښی	نسبت	ودانۍ کسر	algebraic بيان
+sm	faaopoopo	tōʻese	fanafanau	vaega	decimal	vaega	exponent	faalauteleina	tapulaʻa	faaupuga	faavae	le lelei	numera o le lelei	polynomial	fuafuaina	aa faatafafa	ratio	vaega lotoa	faaupuga algebraic
+gd	bharrachd	toirt air falbh	iomadachadh	Roinn	deicheach	bloigh	exponent	leudachadh	cuingealachadh	co-aontar	bunaitean	àicheil	àireamhan àicheil	abairt iomadh-theirmeach	co-roinneil	freumh ceàrnagach	co-mheas	compound bloigh	abairt ailseabra
+st	Ho phaella moo	tlosa ka	le katiso	karohano	tesimale	karoloana	muelli	tjaleho	moedi	abel	lintho tsa motheo	mpe	linomoro mpe	homogeneous polynomial	tekanyo e lekanang ya	motso lisekoere	karo-karolelano	karoloana komponeng	aljebra ho hlahisa maikutlo
+sn	Kuwedzera	kubvisa	chokuwanziridza	Kupesana	grade	chakapatsanurwa	exponent	kuwedzera	muganhu	mukana wokuti vanhu vanga	zvinokosha	akaipa	kunaka nhamba	polynomial	Proportional	mativi mudzi	reshiyo	akakura chakapatsanurwa	algebraic okuti
+sd	ان کان سواء	subtraction	ضرب	جدائي	اعشاري	تعريف	exponent	توسيع	حد	لاڳاپا وڌائڻ	فاروق سومرو	منفي	منفي انگ	polynomial	متناسب	چورس پاڙ	نظر	مرڪب تعريف	algebraic اظهار
+so	Intaa waxaa dheer	-goynta	dhufashada	qeybinta	jajab tobanle	jajab	jibbaarada	ballaarinta	xadka	isla'egta	aasaaska	negative	tiro taban	polynom	saami	xididka laba jibbaaran	ratio	jajab xarunta	aljabrada qowlka
+su	tambahan	pangurangan	multiplication	division	decimal	fraksi	exponent	ékspansi	wates	persamaan	dasar	négatip	angka négatip	polynomial	sabanding	akar kuadrat	babandingan	fraksi sanyawa	éksprési aljabar
+tg	Илова бар ин	ҳисобкунӣ	зарб	Воҳиди	даҳӣ	фраксияи	донову тавонои	густариши	ҳудуд	муодилаи	асосҳои	манфӣ	ададҳои манфӣ	polynomial	мутаносиб	реша мураббаъ	таносуби	њиссаи мураккаб	Ибораи алгебравии
+cy	Hefyd	tynnu	lluosi	is-adran	degol	ffracsiwn	ddehonglwr	ehangu	terfyn	hafaliad	pethau sylfaenol	negyddol	rhifau negyddol	polynomial	gyfrannol	ail isradd	cymhareb	ffracsiwn cyfansawdd	mynegiant algebraidd
+xh	Ngaphezu	nokukhupha	ukuphinda-phinda	division	ngeshumi	iqhekeza	umchazi	ukwanda	umda	equation	izisekelo	negative	amanani akhabayo	polynomial	bulingane	iingcambu ezimbhoxo	ratio	iqhekeza compound	aljibra nkulumo
+yi	דערצו	כיסער	קייפל	אָפּטייל	דעצימאַל	בראָכצאָל	עקספּאָנענט	יקספּאַנשאַן	באַגרענעצן	יקווייזשאַן	באַסיקס	נעגאַטיוו	נעגאַטיוו נומערן	פּאַלינאָומיאַל	פּראַפּאָרשאַנאַל	קוואַדראַט וואָרצל	פאַרהעלטעניש	קאַמפּאַונד בראָכצאָל	אַלדזשאַבריייק אויסדרוק
+yo	afikun	iyokuro	isodipupo	pipin	eleemewa	ida	agbènọmbàga	imugboroosi	iye	idogba	ibere	odi	odi awọn nọmba	onírúiyepúpọ	iwon	square root	ratio	yellow ida	aljebra ikosile

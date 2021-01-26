@@ -1,0 +1,13 @@
+- prefix: exp
+  name: '{Exponent}'
+  suffix:
+    - 1
+    - 2
+- prefix: expansion
+  name: '{Expansion}'
+  suffix:
+    - 1
+- prefix: lim
+  name: '{Limit}'
+  suffix:
+    - 1

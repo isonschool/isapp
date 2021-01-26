@@ -1,0 +1,20 @@
+sampleTex: 391+9=400
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 11
+              max: 799
+            - var: a1
+              min: 1
+              max: 9
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; add 1 .a0 .a1; add 10 .a0 .a1; add 100 .a0 .a1; add -1 .a0 .a1; 100; 200

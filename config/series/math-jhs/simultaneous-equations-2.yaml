@@ -1,0 +1,158 @@
+sampleTex: 'x = 3, 2x+3y=4'
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    z:
+      expressions:
+        - template: Simul (Equal 'x' .a0) (Equal (Add (Mul .a1 'x') (Mul .a2 'y')) .a3)
+          calcs: .a0; div (sub .a3 (mul .a1 .a0)) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: mul .a1 .a0
+        - template: Simul (Equal 'x' .b0) (Equal (Add (Times .b1 .b4) (Mul .b2 'y')) .b3)
+          calcs: .b0; div (sub .b3 (mul .b1 .b4)) .b2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          ignore: '== .b3 (mul .b1 .b4)'
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+            - var: b3
+              cal: .a3
+            - var: b4
+              cal: .a0
+              excepts: 0
+        - template: Simul (Equal 'x' .c0) (Equal (Add .c1 (Mul .c2 'y')) .c3)
+          calcs: .c0; div (sub .c3 .c1) .c2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          ignore: '== .c3 .c1'
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: mul .b1 .b4
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b3
+        - template: Simul (Equal 'x' .d0) (Equal (Mul .d2 'y') .d1)
+          calcs: .d0; div .d1 .d2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: d0
+              cal: .c0
+            - var: d1
+              cal: sub .c3 .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+        - template: Simul (Equal 'x' .e0) (Equal 'y' (Frac .e1 .e2))
+          calcs: .e0; div .e1 .e2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: e0
+              cal: .d0
+            - var: e1
+              cal: .d1
+              excepts: 0
+            - var: e2
+              cal: .d2
+              excepts: 0
+    w:
+      expressions:
+        - template: Simul (Equal 'y' .a0) (Equal (Add (Mul .a1 'y') (Mul .a2 'x')) .a3)
+          calcs: .a0; div (sub .a3 (mul .a1 .a0)) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: -10
+              max: 10
+              excepts: mul .a1 .a0
+        - template: Simul (Equal 'y' .b0) (Equal (Add (Times .b1 .b4) (Mul .b2 'x')) .b3)
+          calcs: .b0; div (sub .b3 (mul .b1 .b4)) .b2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          ignore: '== .b3 (mul .b1 .b4)'
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+            - var: b3
+              cal: .a3
+            - var: b4
+              cal: .a0
+              excepts: 0
+        - template: Simul (Equal 'y' .c0) (Equal (Add .c1 (Mul .c2 'x')) .c3)
+          calcs: .c0; div (sub .c3 .c1) .c2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          ignore: '== .c3 .c1'
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: mul .b1 .b4
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b3
+        - template: Simul (Equal 'y' .d0) (Equal (Mul .d2 'x') .d1)
+          calcs: .d0; div .d1 .d2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: d0
+              cal: .c0
+            - var: d1
+              cal: sub .c3 .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+        - template: Simul (Equal 'x' (Frac .e1 .e2)) (Equal 'y' .e0)
+          calcs: .e0; div .e1 .e2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: e0
+              cal: .d0
+            - var: e1
+              cal: .d1
+              excepts: 0
+            - var: e2
+              cal: .d2
+              excepts: 0

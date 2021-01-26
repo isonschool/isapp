@@ -1,0 +1,107 @@
+sampleTex: '634 \div 2 = 317'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 3
+            - var: h1
+              min: 1
+              max: 9
+            - var: h2
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul (add (mul 100 .h0) (mul 10 .h1) .h2) .a1
+        - template: Div (Add (Times .b0 .b1) .b2) .b1
+          calcs: div (add (mul .b0 .b1) .b2) .b1
+          constraints:
+            - var: b0
+              cal: mul 100 .h0
+              wrongCals: .h0; .h1; .h2; .a0; .a1; mul .a1 100; mul .h0 100; mul .h1 10; mul .h2; sub .a0 (mul .a1 100); sub .a0 (mul .h0 100); 100; 10; 1
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: sub .a0 (mul .a1 100 .h0)
+              wrongCals: .h0; .h1; .h2; .a0; .a1; mul .a1 100; mul .h0 100; mul .h1 10; mul .h2; sub .a0 (mul .a1 100); sub .a0 (mul .h0 100); 100; 10; 1
+        - template: Div (Add (Times .c0 .c1) (Times .c2 .c1) .c3) .c1
+          calcs: div (add (mul .c0 .c1) (mul .c2 .c1) .c3) .c1
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: .b1
+            - var: c2
+              cal: mul 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10)
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b0 .b2; add .b1 .b2; mul 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10); sub .b2 (mul 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10))
+            - var: c3
+              cal: sub .b2 (mul .b1 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10))
+              wrongCals: .b0; .b1; .b2; add .b0 .b1; add .b0 .b2; add .b1 .b2; mul 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10); sub .b2 (mul 10 (digit (div (sub .b2 (mod .b2 .b1)) .b1) 10))
+        - template: Div (Add (Times .d0 .d1) (Times .d2 .d1) (Times .d3 .d1) .d4) .d1
+          calcs: div (add (mul .d0 .d1) (mul .d2 .d1) (mul .d3 .d1) .d4) .d1
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: .c0; .c1; .c2; .c3; mod .c3 .c1; mod .c0 .c1; mod .c2 .c1; sub .c3 (mod .c3 .c1); 1; 10
+            - var: d1
+              cal: .c1
+            - var: d2
+              cal: .c2
+              wrongCals: .c0; .c1; .c2; .c3; mod .c3 .c1; mod .c0 .c1; mod .c2 .c1; sub .c3 (mod .c3 .c1); 1; 10
+            - var: d3
+              cal: div (sub .c3 (mod .c3 .c1)) .c1
+              wrongCals: .c0; .c1; .c2; .c3; mod .c3 .c1; mod .c0 .c1; mod .c2 .c1; sub .c3 (mod .c3 .c1); 1; 10
+            - var: d4
+              cal: mod .c3 .c1
+              wrongCals: .c0; .c1; .c2; .c3; mod .c3 .c1; mod .c0 .c1; mod .c2 .c1; sub .c3 (mod .c3 .c1); 1; 10
+        - template: WithRemainder .e0 .e1
+          calcs: add .e0 (div .e1 .e2)
+          constraints:
+            - var: e0
+              cal: add .d0 .d2 .d3
+              wrongCals: .d0; .d1; .d2; .d3; .d4; 1; 2; 3; add .d0 .d2; add .d0 .d3; add .d2 .d3; add .d0 .d1 .d2 .d3
+            - var: e1
+              cal: .d4
+              wrongCals: .d0; .d1; .d2; .d3; .d4; 1; 2; 3; add .d0 .d2; add .d0 .d3; add .d2 .d3; add .d0 .d1 .d2 .d3
+            - var: e2
+              cal: .d1
+    w:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 3
+            - var: h1
+              min: 1
+              max: 9
+            - var: h2
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul (add (mul 100 .h0) (mul 10 .h1) .h2) .a1
+        - template: Div (Times .b0 .b1) .b1
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add (mul 100 .h0) (mul 10 .h1) .h2
+              wrongCals: .a0; .a1; add 1 .h0; mul .a0 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1; 100; 10; 1; mul 100 .h0; mul 10 .h1; .h2; .h1; .h0; add (mul 100 .h0) (mul 10 .h1)
+            - var: b1
+              cal: .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; add 1 .b0; add 10 .b0; add 100 .b0; add 1 .b1; add 10 .b1; add 100 .b1; add .b0 .b1; mul .b0 .b1; 1; 10; 20

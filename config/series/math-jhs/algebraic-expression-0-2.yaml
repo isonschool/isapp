@@ -1,0 +1,80 @@
+sampleTex: 'x \div 3 = \frac{x}{3}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div 'x' .a0
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Frac 'x' .b0
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+    w:
+      expressions:
+        - template: Div .a0 'x'
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+              excepts: 0
+        - template: Frac .b0 'x'
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    u:
+      expressions:
+        - template: Div (Add 'x' .a0) .a1
+          calcs: .a0;.a1
+          constraints:
+            - var: a0
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+        - template: Frac (Add 'x' .b0) .b1
+          calcs: .b0;.b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+    v:
+      expressions:
+        - template: Div (Add 'x' .a0) (Add 'y' .a1)
+          calcs: .a0;.a1
+          constraints:
+            - var: a0
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+        - template: Frac (Add 'x' .b0) (Add 'y' .b1)
+          calcs: .b0;.b1
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0

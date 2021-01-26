@@ -1,0 +1,37 @@
+sampleTex: 7-2+2=7
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Sub .a0 .a1) .a1
+          calcs: add (sub .a0 .a1) .a1
+          constraints:
+            - var: a0
+              min: 2
+              max: 9
+            - var: a1
+              min: 1
+              max: .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add .a0 .a1 .a1; sub .a0 .a1; add .a0 .a0; add .a0 .a1; 1; 2; 3; 4; 5
+    w:
+      expressions:
+        - template: Sub (Add .a0 .a1) .a1
+          calcs: sub (add .a0 .a1) .a1
+          constraints:
+            - var: a0
+              min: 2
+              max: 9
+            - var: a1
+              min: 0
+              max: .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; add .a0 .a0; add .a0 .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9

@@ -1,0 +1,95 @@
+skey: sqrt-3
+pkey: p057
+sname: "{Square root} 3"
+sampleTex: '\sqrt{8} = 2\sqrt{2}'
+localized:
+  en: Square root 3
+  ja: 平方根 3
+maxWidth: 165
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sqrt .a0
+          calcs: sqrt .a0
+          constraints:
+            - var: h0
+              choices: 2;3;5;7
+            - var: h1
+              choices: 2;3;5;7;11
+            - var: a0
+              cal: mul .h0 .h0 .h1
+        - template: Sqrt (Times .b0 .b1 .b2)
+          calcs: sqrt (mul .b0 .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .h0; .h1; .a0; add 1 .h0; add 1 .h1; 2; mul .h0 .h1; mul 2 .h0
+            - var: b1
+              cal: .h0
+              wrongCals: .h0; .h1; .a0; add 1 .h0; add 1 .h1; 2; mul .h0 .h1; mul 2 .h0
+            - var: b2
+              cal: .h1
+              wrongCals: .h0; .h1; .a0; add 1 .h0; add 1 .h1; 2; mul .h0 .h1; mul 2 .h0
+        - template: Times (Sqrt .c0) (Sqrt .c1) (Sqrt .c2)
+          calcs: sqrt (mul .c0 .c1 .c2)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2; add 1 .b0; add 1 .b1; add 1 .b2; mul 2 .b0; mul 2 .b1; mul 2 .b2; 2; add .b0 .b1; add .b0 .b2; mul .b0 .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2; add 1 .b0; add 1 .b1; add 1 .b2; mul 2 .b0; mul 2 .b1; mul 2 .b2; 2; add .b0 .b1; add .b0 .b2; mul .b0 .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2; add 1 .b0; add 1 .b1; add 1 .b2; mul 2 .b0; mul 2 .b1; mul 2 .b2; 2; add .b0 .b1; add .b0 .b2; mul .b0 .b2
+        - template: Mul .d0 (Sqrt .d1)
+          calcs: mul .d0 (sqrt .d1)
+          constraints:
+            - var: d0
+              cal: sqrt (mul .c0 .c1)
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c0 .c2; mul .c1 .c2; add 1 .c0; add 1 .c1; add 1 .c2; mul 2 .c0; mul 2 .c1; mul 2 .c2; 2; add .c0 .c1; add .c0 .c2; mul .c0 .c2
+            - var: d1
+              cal: .c2
+              wrongCals: .c0; .c1; .c2; mul .c0 .c1; mul .c0 .c2; mul .c1 .c2; add 1 .c0; add 1 .c1; add 1 .c2; mul 2 .c0; mul 2 .c1; mul 2 .c2; 2; add .c0 .c1; add .c0 .c2; mul .c0 .c2
+    w:
+      expressions:
+        - template: Mul .a0 (Sqrt .a1)
+          calcs: mul .a0 (sqrt .a1)
+          constraints:
+            - var: a0
+              min: 2
+              max: 5
+            - var: a1
+              min: 2
+              max: 5
+        - template: Times (Sqrt .b0) (Sqrt .b1) (Sqrt .b2)
+          calcs: sqrt (mul .b0 .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul 2 .a0; mul 2 .a1; mul .a0 .a0; mul .a0 .a1; mul .a1 .a1; 2
+            - var: b1
+              cal: .a0
+              wrongCals: .a0; .a1; mul 2 .a0; mul 2 .a1; mul .a0 .a0; mul .a0 .a1; mul .a1 .a1; 2
+            - var: b2
+              cal: .a1
+              wrongCals: .a0; .a1; mul 2 .a0; mul 2 .a1; mul .a0 .a0; mul .a0 .a1; mul .a1 .a1; 2
+        - template: Sqrt (Times .c0 .c1 .c2)
+          calcs: sqrt (mul .c0 .c1 .c2)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; mul 2 .b0; mul .b0 .b0; 1; 2; .b1; .b2; mul 2 .b1; mul 2 .b2; mul .b1 .b1; mul .b2 .b2; mul .b1 .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; mul 2 .b0; mul .b0 .b0; 1; 2; .b1; .b2; mul 2 .b1; mul 2 .b2; mul .b1 .b1; mul .b2 .b2; mul .b1 .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; mul 2 .b0; mul .b0 .b0; 1; 2; .b1; .b2; mul 2 .b1; mul 2 .b2; mul .b1 .b1; mul .b2 .b2; mul .b1 .b2
+        - template: Sqrt .d0
+          calcs: sqrt .d0
+          constraints:
+            - var: d0
+              cal: mul .c0 .c1 .c2
+              wrongCals: .c0; .c1; .c2; 1; 2; mul 2 .c0; mul 3 .c0; mul 2 .c1; mul 2 .c2; mul 2 .c0 .c2; mul .c0 .c2; mul .c1 .c2; mul .c0 .c1; mul 2 .c0 .c1 .c2; 10

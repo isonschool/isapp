@@ -1,0 +1,183 @@
+sampleTex: 'y = 10/x \Rightarrow y |_{x=2} = 5'
+mth:
+  relationTex: '\Rightarrow'
+  generators:
+    z:
+      expressions:
+        - template: And 'y = \frac{ a }{ x }' (Equal (Restrict 'y' (Equal 'x' (Frac .a0 .a1))) .a2)
+          calcs: mul .a2 (div .a0 .a1)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+              pred: '_|_ .a0 .this'
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Equal .b2 (Frac 'a' (Frac .b0 .b1))
+          calcs: mul .b2 (div .b0 .b1)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Equal 'a' (Times .c2 (Frac .c0 .c1))
+          calcs: mul .c2 (div .c0 .c1)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+        - template: Equal 'a' (Frac .d0 .d1)
+          calcs: div .d0 .d1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; mul 2 $cal; 1; 2; 4; 8
+          constraints:
+            - var: d0
+              cal: mul .c2 .c0
+            - var: d1
+              cal: .c1
+    w:
+      relationTex: Equal
+      expressions:
+        - template: Let (Equal 'y' (Frac .a0 'x')) (Restrict 'y' (Equal 'x' (Frac .a1 .a2)))
+          calcs: div .a0 (div .a1 .a2)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0; 1; -1
+              pred: '_|_ .a1 .this'
+        - template: Frac .b0 (Frac .b1 .b2)
+          calcs: div .b0 (div .b1 .b2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Frac (Times .c0 .c3) (Times (Frac .c1 .c2) .c3)
+          calcs: div .c0 (div .c1 .c2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+            - var: c3
+              cal: .b2
+              excepts: 0
+              wrongCals: ''
+        - template: Frac .d0 .d1
+          calcs: div .d0 .d1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: d0
+              cal: mul .c0 .c2
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+    v:
+      relationTex: Equal
+      expressions:
+        - template: Let (Equal 'y' (Frac .a0 'x')) (Restrict 'x' (Equal 'y' (Frac .a1 .a2)))
+          calcs: div .a0 (div .a1 .a2)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+              pred: '_|_ .this .a1'
+        - template: Restrict (Div .b0 'y') (Equal 'y' (Frac .b1 .b2))
+          calcs: div .b0 (div .b1 .b2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Div .c0 (Frac .c1 .c2)
+          calcs: div .c0 (div .c1 .c2)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: c0
+              cal: .b0
+              excepts: 0
+            - var: c1
+              cal: .b1
+              excepts: 0
+            - var: c2
+              cal: .b2
+              excepts: 0
+        - template: Times .d0 (Frac .d2 .d1)
+          calcs: mul .d0 (div .d2 .d1)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: d0
+              cal: .c0
+              excepts: 0
+            - var: d1
+              cal: .c1
+              excepts: 0
+            - var: d2
+              cal: .c2
+              excepts: 0
+        - template: Frac .e0 .e1
+          calcs: div .e0 .e1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -2 $cal; mul -1 $cal; 1; 2; 4; 8
+          constraints:
+            - var: e0
+              cal: mul .d0 .d2
+              excepts: 0
+            - var: e1
+              cal: .d1
+              excepts: 0

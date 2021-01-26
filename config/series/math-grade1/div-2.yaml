@@ -1,0 +1,53 @@
+sampleTex: '6 \div 3 = 2'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .h0 .a1
+        - template: Div (Times .b0 .b1) .b2
+          calcs: div (mul .b0 .b1) .b2
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .a0; .a1; add 1 .h0; add -1 .h0; mul .a0 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .h0; .a0; add 1 .a1; add -1 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1
+            - var: b2
+              cal: .a1
+              wrongCals: .h0; .a0; add 1 .a1; add -1 .a1; add .a0 .a1; add .h0 .a0; add .h0 .a1
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: div (mul .b0 .b1) .b2
+              wrongCals: .b1; add 1 .b0; add -1 .b0; mul .b0 .b1; add .b0 .b1; add .b1 1; add .b1 -1
+    w:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .h0 .a1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: div .a0 .a1
+              wrongCals: .a0; .a1; mul .a0 .a1; add .a0 .a1; add 1 (div .a0 .a1); add -1 (div .a0 .a1); 1; 2

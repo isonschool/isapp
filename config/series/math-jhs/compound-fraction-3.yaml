@@ -1,0 +1,100 @@
+sampleTex: '\frac{ 1 + \frac{2}{3} }{ 1 + \frac{1}{2} } = \frac{2}{3}'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Frac (Add .a0 (Frac .a1 .a2)) (Add .a3 (Frac .a4 .a5)); Frac (Add (Frac .a1 .a2) .a0) (Add .a3 (Frac .a4 .a5)); Frac (Add .a0 (Frac .a1 .a2)) (Add (Frac .a4 .a5) .a3); Frac (Add (Frac .a1 .a2) .a0) (Add (Frac .a4 .a5) .a3)
+          calcs: div (add .a0 (div .a1 .a2)) (add .a3 (div .a4 .a5))
+          constraints:
+            - var: a0
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a1
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a2
+              min: -5
+              max: 5
+              excepts: 0;1;-1; mul -1 (div .a1 .a0)
+              pred: '== 1 (gcd .a1 .this)'
+            - var: a3
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a4
+              min: -5
+              max: 5
+              excepts: 0
+            - var: a5
+              min: -5
+              max: 5
+              excepts: 0;1;-1; mul -1 (div .a1 .a0)
+              pred: '== 1 (gcd .a4 .this)'
+            - var: m0
+              cal: lcm .a2 .a5
+        - template: Frac (Times (Add .b0 (Frac .b1 .b2)) .b6) (Times (Add .b3 (Frac .b4 .b5)) .b7); Frac (Times (Add (Frac .b1 .b2) .b0) .b6) (Times (Add .b3 (Frac .b4 .b5)) .b7); Frac (Times (Add .b0 (Frac .b1 .b2)) .b6) (Times (Add (Frac .b4 .b5) .b3) .b7); Frac (Times (Add (Frac .b1 .b2) .b0) .b6) (Times (Add (Frac .b4 .b5) .b3) .b7)
+          calcs: div (mul (add .b0 (div .b1 .b2)) .b6) (mul (add .b3 (div .b4 .b5)) .b7)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; $vars; mul -1 $vars; 2; 3; 5
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0; mul -1 (div .a1 .a2)
+            - var: b1
+              cal: .a1
+              excepts: 0; mul -1 .a0 .a2
+            - var: b2
+              cal: .a2
+              excepts: 0; mul -1 (div .a1 .a0)
+            - var: b3
+              cal: .a3
+              excepts: 0; mul -1 (div .a4 .a5)
+            - var: b4
+              cal: .a4
+              excepts: 0; mul -1 .a3 .a5
+            - var: b5
+              cal: .a5
+              excepts: 0; mul -1 (div .a4 .a3)
+            - var: b6
+              cal: .m0
+              excepts: 0
+            - var: b7
+              cal: .m0
+              excepts: 0
+        - template: Frac (Add .c0 .c1) (Add .c2 .c3); Frac (Add .c1 .c0) (Add .c2 .c3); Frac (Add .c0 .c1) (Add .c3 .c2); Frac (Add .c1 .c0) (Add .c3 .c2)
+          calcs: div (add .c0 .c1) (add .c2 .c3)
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; $vars; mul -1 $vars; 2; 3; 5
+          constraints:
+            - var: c0
+              cal: mul .b0 .b6
+              excepts: 0; div (mul -1 .b1 .b6) .b2
+            - var: c1
+              cal: div (mul .b1 .b6) .b2
+              excepts: 0; mul -1 .b0 .b6
+            - var: c2
+              cal: mul .b3 .b7
+              excepts: 0; div (mul -1 .b4 .b7) .b5
+            - var: c3
+              cal: div (mul .b4 .b7) .b5
+              excepts: 0; mul -1 .b3 .b7
+        - template: Frac (Raw .d0) (Raw .d1)
+          calcs: div .d0 .d1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; $vars; mul -1 $vars; 2; 3; add $vars $varss; sub $vars $varss
+          constraints:
+            - var: d0
+              cal: add .c0 .c1
+              excepts: 0
+            - var: d1
+              cal: add .c2 .c3
+              excepts: 0
+        - template: Frac .e0 .e1
+          calcs: div .e0 .e1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; $vars; mul -1 $vars; 1; 2; 3; add $vars $varss; sub $vars $varss
+          constraints:
+            - var: e0
+              cal: .d0
+              excepts: 0
+            - var: e1
+              cal: .d1
+              excepts: 0

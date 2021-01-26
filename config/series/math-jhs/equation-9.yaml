@@ -1,0 +1,231 @@
+sampleTex: '2:3=4:6'
+mth:
+  relationTex: '\Rightarrow'
+  generators:
+    w:
+      expressions:
+        - template: Equal (Ratio .a0 'x') (Ratio .a1 .a2); Equal (Ratio .a1 .a2) (Ratio .a0 'x'); Equal (Ratio 'x' .a0) (Ratio .a2 .a1); Equal (Ratio .a2 .a1) (Ratio 'x' .a0)
+          calcs: div (mul .a0 .a2) .a1
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: h1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              cal: mul .a0 .h0
+            - var: a2
+              cal: mul .h1 .h0
+        - template: Equal (Mul .b1 'x') (Times .b0 .b2)
+          calcs: div (mul .b0 .b2) .b1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; 2; -2; 1; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Equal (Mul .c0 'x') .c1
+          calcs: div .c1 .c0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: c0
+              cal: .b1
+              excepts: 0
+            - var: c1
+              cal: mul .b0 .b2
+              excepts: 0
+        - template: Equal 'x' .d0
+          calcs: .d0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: d0
+              cal: div .c1 .c0
+    w':
+      expressions:
+        - constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              cal: mul .h0 .a1
+    u:
+      expressions:
+        - template: Equal (Ratio .a0 'x') (Ratio .a1 .a2); Equal (Ratio .a1 .a2) (Ratio .a0 'x'); Equal (Ratio 'x' .a0) (Ratio .a2 .a1); Equal (Ratio .a2 .a1) (Ratio 'x' .a0)
+          calcs: div (mul .a0 .a2) .a1
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: h1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              cal: mul .a0 .h0
+            - var: a2
+              cal: mul .h1 .h0
+        - template: Equal 'x' .b0
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; 2; -2; 1; -1
+          constraints:
+            - var: b0
+              cal: div (mul .a0 .a2) .a1
+    u':
+      expressions:
+        - constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              cal: mul .h0 .a1
+    v:
+      expressions:
+        - template: Equal (Ratio .a0 'x') (Ratio .a1 .a2); Equal (Ratio .a1 .a2) (Ratio .a0 'x'); Equal (Ratio 'x' .a0) (Ratio .a2 .a1); Equal (Ratio .a2 .a1) (Ratio 'x' .a0)
+          calcs: div (mul .a0 .a2) .a1
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: h1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              cal: mul .a0 .h0
+            - var: a2
+              cal: mul .h1 .h0
+        - template: Equal (Frac .b0 'x') (Frac .b1 .b2)
+          calcs: div (mul .b0 .b2) .b1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; 2; -2; 1; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Equal 'x' .c0
+          calcs: .c0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: c0
+              cal: div (mul .b0 .b2) .b1
+              excepts: 0
+    v':
+      expressions:
+        - constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              cal: mul .h0 .a1
+    q:
+      expressions:
+        - template: Equal (Ratio .a0 'x') (Ratio .a1 .a2); Equal (Ratio .a1 .a2) (Ratio .a0 'x'); Equal (Ratio 'x' .a0) (Ratio .a2 .a1); Equal (Ratio .a2 .a1) (Ratio 'x' .a0)
+          calcs: div (mul .a0 .a2) .a1
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: h1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              cal: mul .a0 .h0
+            - var: a2
+              cal: mul .h1 .h0
+        - template: Equal (Frac 'x' .b0) (Frac .b2 .b1)
+          calcs: div (mul .b0 .b2) .b1
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; 2; -2; 1; -1
+          constraints:
+            - var: b0
+              cal: .a0
+              excepts: 0
+            - var: b1
+              cal: .a1
+              excepts: 0
+            - var: b2
+              cal: .a2
+              excepts: 0
+        - template: Equal 'x' .c0
+          calcs: .c0
+          wrongCals: add 1 $cal; add -1 $cal; add 2 $cal; add -2 $cal; mul 2 $cal; mul -1 $cal; mul -2 $cal; $vars; 2; -2
+          constraints:
+            - var: c0
+              cal: div (mul .b0 .b2) .b1
+              excepts: 0
+    q':
+      expressions:
+        - constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              cal: mul .h0 .a1

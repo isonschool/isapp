@@ -1,0 +1,30 @@
+skey: fraction-1
+pkey: p037
+sname: "{Fraction} 1"
+sampleTex: '1 \div 3 = \frac{1}{3}'
+localized:
+  en: Fraction 1
+  ja: 分数 1
+maxWidth: 61
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: divf .a0 .a1
+          ignore: '!= 1 (gcd .a0 .a1)'
+          constraints:
+            - var: a0
+              min: 1
+              max: 20
+            - var: a1
+              choices: 2;3;5;7;9;11;13;17;19
+        - template: Frac .b0 .b1
+          calcs: divf .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: 1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20
+            - var: b1
+              cal: .a1
+              wrongCals: 1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20

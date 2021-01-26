@@ -1,0 +1,51 @@
+skey: sub-3
+pkey: p025
+sname: "{Subtraction} 4"
+sampleTex: 13-8=5
+maxWidth: 138
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: a0
+              min: 11
+              max: 18
+            - var: a1
+              min: sub .a0 9
+              max: 9
+        - template: Sub (WithPar (Add .b0 10)) .b1
+          calcs: sub (add .b0 10) .b1
+          constraints:
+            - var: b0
+              cal: sub .a0 10
+              wrongCals: sub .a0 9; sub .a0 11; .a0; .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; add .a1 1; add .a1 -1
+        - template: Add .c0 (Sub 10 .c1)
+          calcs: add .c0 (sub 10 .c1)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b1
+            - var: c1
+              cal: .b1
+              wrongCals: .b0
+        - template: Add .d0 .d1
+          calcs: add .d0 .d1
+          constraints:
+            - var: d0
+              cal: .c0
+              wrongCals: .c1; sub 10 .c1; add 1 .c0; mul 2 .c0
+            - var: d1
+              cal: sub 10 .c1
+              wrongCals: .c0; .c1; sub 11 .c1; mul 2 .c1
+        - template: .e0
+          calcs: .e0
+          constraints:
+            - var: e0
+              cal: add .d0 .d1
+              wrongCals: .d0; .d1; mul .d0 .d1; mul 2 .d0; mul 2 .d1; mul 2 (add .d0 .d1)

@@ -1,0 +1,73 @@
+sampleTex: 'x \times (-1) = -x'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times 'x' .a0; Times .a0 'x'; Times 'a' .a0; Times .a0 'a'
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+        - template: Mul .b0 'x'; Mul .b0 'x'; Mul .b0 'a'; Mul .b0 'a'
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    w:
+      expressions:
+        - template: Times 'x' 'y' .a0; Times .a0 'x' 'y'; Times .a0 'x' 'y'; Times 'x' .a0 'y'; Times 'y' .a0 'x'; Times 'y' 'x' .a0; Times .a0 'y' 'x'
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+        - template: Mul .b0 'xy'
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    ww:
+      expressions:
+        - template: Times 'a' 'b' .a0; Times .a0 'a' 'b'; Times .a0 'a' 'b'; Times 'a' .a0 'b'; Times 'b' .a0 'a'; Times 'b' 'a' .a0; Times .a0 'b' 'a'
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+        - template: Mul .b0 'ab'
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    v:
+      expressions:
+        - template: Times (Add 'x' 'y') 'a' .a0; Times (Add 'x' 'y') .a0 'a'; Times 'a' (Add 'x' 'y') .a0; Times .a0 (Add 'x' 'y') 'a'; Times 'a' .a0 (Add 'x' 'y'); Times .a0 'a' (Add 'x' 'y')
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+        - template: Mul .b0 'a' (Add 'x' 'y')
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+    u:
+      expressions:
+        - template: Times (Sub 'x' 'y') .a0; Times .a0 (Sub 'x' 'y') .a0
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: -3
+              max: 3
+        - template: Mul .b0 (Sub 'x' 'y')
+          calcs: .b0
+          wrongCals: add 1 $cal; add -1 $cal; $vars; 1; 2; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0

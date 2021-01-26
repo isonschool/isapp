@@ -1,0 +1,93 @@
+sampleTex: '2 \times 3 + 5 \times 2 = 16'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add (Times .a0 .a1) (Times .a2 .a3)
+          calcs: add (mul .a0 .a1) (mul .a2 .a3)
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+            - var: a3
+              min: 1
+              max: 9
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: .a0; .a1; add .a0 .a1; add .a1 .a2; add .a0 .a2; mul .a1 .a2; mul .a0 .a2
+            - var: b1
+              cal: mul .a2 .a3
+              wrongCals: .a2; .a3; add .a2 .a3; add .a1 .a2; add .a1 .a2; mul .a1 .a2; mul .a1 .a3
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 -1; mul .b0 .b1
+    w:
+      expressions:
+        - template: Add (Times .a0 .a1) .a2
+          calcs: add (mul .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: add .a0 .a2; mul .a1 .a2; .a0; .a1; .a2; 1; 10
+            - var: b1
+              cal: .a2
+              wrongCals: add .a0 .a2; mul .a1 .a2; .a0; .a1; .a2; 1; 10
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 -1; mul .b0 .b1
+    u:
+      expressions:
+        - template: Add .a2 (Times .a0 .a1)
+          calcs: add (mul .a0 .a1) .a2
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              min: 1
+              max: 9
+            - var: a2
+              min: 1
+              max: 9
+        - template: Add .b1 .b0
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: mul .a0 .a1
+              wrongCals: add .a0 .a2; mul .a1 .a2; .a0; .a1; .a2; 1; 10
+            - var: b1
+              cal: .a2
+              wrongCals: add .a0 .a2; mul .a1 .a2; .a0; .a1; .a2; 1; 10
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 1; add .b0 .b1 -1; mul .b0 .b1

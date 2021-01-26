@@ -1,0 +1,33 @@
+skey: set-1
+pkey: p058
+sname: "{Set} 1"
+sampleTex: '1 \in {1,2,3}'
+localized:
+  en: Set 1
+  ja: 集合 1
+mth:
+  generators:
+    z:
+      templates:
+        - 'In .a0 (Set .a1 .a2 .a3)'
+        - 'Ni (Set .a1 .a2 .a3) .a0'
+        - 'Notin .a0 (Set .a1 .a2 .a3)'
+        - 'Notni (Set .a1 .a2 .a3) .a0'
+      booleans:
+        - '|| (== .a0 .a1) (== .a0 .a2) (== .a0 .a3)'
+        - '|| (== .a0 .a1) (== .a0 .a2) (== .a0 .a3)'
+        - '! (|| (== .a0 .a1) (== .a0 .a2) (== .a0 .a3))'
+        - '! (|| (== .a0 .a1) (== .a0 .a2) (== .a0 .a3))'
+      constraints:
+        - var: a0
+          min: 1
+          max: 10
+        - var: a1
+          min: 1
+          max: 5
+        - var: a2
+          min: add 1 .a1
+          max: 7
+        - var: a3
+          min: add 1 .a2
+          max: 10

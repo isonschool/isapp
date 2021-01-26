@@ -1,0 +1,55 @@
+sampleTex: '0.45 + 0.05 = 0.5'
+maxWidth:
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 99
+            - var: h1
+              min: 1
+              max: 99
+            - var: h2
+              choices: 10;100;1000
+            - var: h3
+              choices: 10;100;1000
+            - var: a0
+              cal: divf .h0 .h2
+            - var: a1
+              cal: divf .h1 .h3
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; add .h0 .h1; divf (add .h0 .h1) 10; divf (add .h0 .h1) 100; divf (add .h0 .h1) 1000
+    w:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: 10
+              max: 99
+            - var: h1
+              min: 1
+              max: .h0
+            - var: h2
+              choices: 10;100;1000
+            - var: h3
+              min: .h2
+              choices: 10;100;1000
+            - var: a0
+              cal: divf .h0 .h2
+            - var: a1
+              cal: divf .h1 .h3
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: .a0; .a1; add .h0 .h1; divf (add .h0 .h1) 10; divf (add .h0 .h1) 100; divf (add .h0 .h1) 1000

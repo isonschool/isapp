@@ -1,0 +1,87 @@
+sampleTex: 2000-100=1900
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul 1000 .h0
+            - var: h1
+              min: 1
+              max: mul 10 .h0
+            - var: a1
+              cal: mul 100 .h1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: add 100 (sub .a0 .a1); add 1000 (sub .a0 .a1); add .a0 .a1; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1; mul 10 .a1
+    w:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: 10
+              max: 99
+            - var: a0
+              cal: mul 100 .h0
+            - var: h1
+              min: 1
+              max: .h0
+            - var: a1
+              cal: mul 100 .h1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: add 100 (sub .a0 .a1); add 1000 (sub .a0 .a1); add .a0 .a1; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1; mul 10 .a1
+    u:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: 2
+              max: 9
+            - var: a0
+              cal: mul 1000 .h0
+            - var: h1
+              min: 1
+              max: .h0
+            - var: a1
+              cal: mul 1000 .h1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: add 100 (sub .a0 .a1); add 1000 (sub .a0 .a1); add .a0 .a1; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1; mul 10 .a1
+    v:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul 1000 .h0
+            - var: h1
+              min: 1
+              max: mul 100 .h0
+            - var: a1
+              cal: mul 10 .h1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: add 100 (sub .a0 .a1); add 1000 (sub .a0 .a1); add .a0 .a1; .a0; .a1; add 1 .a0 .a1; add -1 .a0 .a1; mul 10 .a1

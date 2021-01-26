@@ -1,0 +1,66 @@
+skey: sqrt-1
+pkey: p055
+sname: "{Square root} 1"
+sampleTex: '\sqrt{2} \times \sqrt{2} = 2'
+localized:
+  en: Square root 1
+  ja: 平方根 1
+maxWidth: 170
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times (Sqrt .a0) (Sqrt .a0)
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 0
+              max: 10
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: mul -1 .a0; 1; 2; mul .a0 .a0; mul 2 .a0
+    zz:
+      expressions:
+        - template: Times (WithPar (Mul -1 (Sqrt .a0))) (Mul -1 (Sqrt .a0))
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 0
+              max: 10
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: mul -1 .a0; 1; 2; mul .a0 .a0; mul 2 .a0
+    u:
+      expressions:
+        - template: Pow (Sqrt .a0) 2
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 0
+              max: 10
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: mul -1 .a0; 1; 2; mul .a0 .a0; mul 2 .a0
+    uu:
+      expressions:
+        - template: Pow (Mul -1 (Sqrt .a0)) 2
+          calcs: .a0
+          constraints:
+            - var: a0
+              min: 0
+              max: 10
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: mul -1 .a0; 1; 2; mul .a0 .a0; mul 2 .a0

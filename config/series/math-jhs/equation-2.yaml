@@ -1,0 +1,86 @@
+sampleTex: '2x=6 \Leftrightarrow x=3'
+maxWidth: 317
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    z:
+      expressions:
+        - template: Equal (Mul .a0 'x') .a1
+          calcs: div .a1 .a0
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+            - var: a1
+              cal: mul .h0 .a0
+        - template: Equal (Div (Mul .b0 'x') .b2) (Div .b1 .b3)
+          calcs: div (div .b1 .b3) (div .b0 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b2
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b3
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+        - template: Equal 'x' .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: div (div .b1 .b3) (div .b0 .b2)
+              wrongCals: mul -1 (div (div .b1 .b3) (div .b0 .b2)); sub .b0 .b1; add .b1 .b3; add .b0 .b2; add .b0 .b1 .b2 .b3; 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3
+    w:
+      expressions:
+        - template: Equal .t1 (Mul .t0 'x')
+          calcs: div .t1 .t0
+          constraints:
+            - var: h0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: t0
+              min: -10
+              max: 10
+              excepts: 0;1;-1
+            - var: t1
+              cal: mul .h0 .t0
+        - template: Equal (Mul .a0 'x') .a1
+          calcs: div .a1 .a0
+          constraints:
+            - var: a0
+              cal: .t0
+              wrongCals: .t0; .t1; mul -1 .t0; mul -1 .t1; 2; -2; 1; -1; mul .t0 .t1; add .t0 .t1; mul -1 (add .t0 .t1); mul -1 .t0 .t1
+            - var: a1
+              cal: .t1
+              wrongCals: .t0; .t1; mul -1 .t0; mul -1 .t1; 2; -2; 1; -1; mul .t0 .t1; add .t0 .t1; mul -1 (add .t0 .t1); mul -1 .t0 .t1
+        - template: Equal (Div (Mul .b0 'x') .b2) (Div .b1 .b3)
+          calcs: div (div .b1 .b3) (div .b0 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b2
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+            - var: b3
+              cal: .a0
+              wrongCals: .a0; .a1; mul -1 .a0; mul -1 .a1; 2; -2; 1; -1; mul .a0 .a1; add .a0 .a1; mul -1 (add .a0 .a1); mul -1 .a0 .a1
+        - template: Equal 'x' .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: div (div .b1 .b3) (div .b0 .b2)
+              wrongCals: mul -1 (div (div .b1 .b3) (div .b0 .b2)); sub .b0 .b1; add .b1 .b3; add .b0 .b2; add .b0 .b1 .b2 .b3; 2; -2; add 1 .b2; add 1 .b3; mul -1 .b2; mul -1 .b3; add -1 .b2; add -1 .b3; 1; -1; mul -1 .b0; add .b1 .b0; .b1; mul -1 .b1; mul -1 .b0 .b1; add 1 .b0; add -1 .b0; add 2 .b0; add -2 .b0; add 1 .b1; add -1 .b1; add 2 .b1; add -2 .b1; .b2; .b3

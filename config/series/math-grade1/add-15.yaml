@@ -1,0 +1,28 @@
+sampleTex: 800+60=860
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: h0
+              choices: 1;10;100
+            - var: h1
+              min: 1
+              max: 9
+            - var: a0
+              cal: mul .h0 .h1
+            - var: h2
+              choices: 1;10;100
+            - var: h3
+              min: 1
+              max: 9
+            - var: a1
+              cal: mul .h2 .h3
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: add .h1 .h3; mul 10 (add .h1 .h3); mul 100 (add .h1 .h3); add .h1 (mul 10 .h3); add .h1 (mul 100 .h3); add (mul 10 .h1) .h3; add (mul 100 .h1) .h3; add (mul 10 .h1) (mul 10 .h3); add (mul 100 .h1) (mul 10 .h3)

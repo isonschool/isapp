@@ -1,0 +1,23 @@
+sampleTex: 7=3+4
+mth:
+  generators:
+    z:
+      expressions:
+        - template: add .a0 .a1
+          calcs: add .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 7
+            - var: a1
+              min: 1
+              max: sub 9 .a0
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10

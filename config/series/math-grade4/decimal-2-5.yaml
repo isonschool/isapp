@@ -1,0 +1,115 @@
+sampleTex: '0.5 - 0.2 + 1.1 = 1.4'
+maxWidth:
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: h0
+              min: 1
+              max: 10
+            - var: h1
+              min: 1
+              max: .h0
+            - var: h2
+              min: 1
+              max: 10
+            - var: h3
+              choices: 10;100
+            - var: a0
+              cal: div .h0 .h3
+            - var: a1
+              cal: mul -1 (div .h1 .h3)
+            - var: a2
+              cal: div .h2 .h3
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 0.1; 0.1; 0.01; mul .b0 .b1
+    w:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: h0
+              min: 1
+              max: 10
+            - var: h1
+              min: 1
+              max: 10
+            - var: h2
+              min: 1
+              max: add .h0 .h1
+            - var: h3
+              choices: 10;100
+            - var: a0
+              cal: div .h0 .h3
+            - var: a1
+              cal: div .h1 .h3
+            - var: a2
+              cal: mul -1 (div .h2 .h3)
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 0.1; 0.1; 0.01; mul .b0 .b1
+    u:
+      expressions:
+        - template: Add .a0 .a1 .a2
+          calcs: add .a0 .a1 .a2
+          constraints:
+            - var: h1
+              min: 1
+              max: 10
+            - var: h2
+              min: 1
+              max: 10
+            - var: h0
+              min: add .h1 .h2
+              max: 30
+            - var: h3
+              choices: 10;100
+            - var: a0
+              cal: div .h0 .h3
+            - var: a1
+              cal: mul -1 (div .h1 .h3)
+            - var: a2
+              cal: mul -1 (div .h2 .h3)
+        - template: Add .b0 .b1
+          calcs: add .b0 .b1
+          constraints:
+            - var: b0
+              cal: add .a0 .a1
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+            - var: b1
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; add .a0 .a1; add .a0 .a2; add .a1 .a2; mul 2 .a0; mul 2 .a1; mul 2 .a2; mul 10 .a0; mul 10 .a1; mul 10 .a2; 1; 0.1; 0.01
+        - template: .c0
+          calcs: .c0
+          constraints:
+            - var: c0
+              cal: add .b0 .b1
+              wrongCals: .b0; .b1; add .b0 .b1 0.1; 0.1; 0.01; mul .b0 .b1

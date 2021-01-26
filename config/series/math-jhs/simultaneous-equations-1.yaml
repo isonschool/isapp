@@ -1,0 +1,78 @@
+sampleTex: 'x = 3, y = 2x+1'
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    z:
+      expressions:
+        - template: Simul (Equal 'x' .a0) (Equal 'y' (Add (Mul .a1 'x') .a2)); Simul (Equal 'y' (Add (Mul .a1 'x') .a2)) (Equal 'x' .a0)
+          calcs: .a0; add (mul .a1 .a0) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Simul (Equal 'x' .b0) (Equal 'y' (Add (Times .b1 .b3) .b2)); Simul (Equal 'y' (Add (Times .b1 .b3) .b2)) (Equal 'x' .b0)
+          calcs: .b0; add (mul .b1 .b3) .b2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+            - var: b3
+              cal: .a0
+        - template: Simul (Equal 'x' .c0) (Equal 'y' .c1)
+          calcs: .c0; .c1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: add (mul .b1 .b3) .b2
+    w:
+      expressions:
+        - template: Simul (Equal 'y' .a0) (Equal 'x' (Add (Mul .a1 'y') .a2)); Simul (Equal 'x' (Add (Mul .a1 'y') .a2)) (Equal 'y' .a0)
+          calcs: .a0; add (mul .a1 .a0) .a2
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+        - template: Simul (Equal 'y' .b0) (Equal 'x' (Add (Times .b1 .b3) .b2)); Simul (Equal 'x' (Add (Times .b1 .b3) .b2)) (Equal 'y' .b0)
+          calcs: .b0; add (mul .b1 .b3) .b2
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: b0
+              cal: .a0
+            - var: b1
+              cal: .a1
+            - var: b2
+              cal: .a2
+            - var: b3
+              cal: .a0
+        - template: Simul (Equal 'x' .c0) (Equal 'y' .c1)
+          calcs: .c0; .c1
+          wrongCals: add 1 $cal; add 2 $cal; add -1 $cal; add -2 $cal; $vars; mul -1 $cal; mul 2 $cal; mul -2 $cal; 1; 3; -1
+          constraints:
+            - var: c0
+              cal: .b0
+            - var: c1
+              cal: add (mul .b1 .b3) .b2

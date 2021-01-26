@@ -1,0 +1,101 @@
+sampleTex: '39 \times 5 = 195'
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              choices: 19;29;39;49;59;69;79;89;99;18;28;38;48;58;68;78;88;98
+            - var: a1
+              min: 2
+              max: 9
+        - template: Times (Sub .b0 .b1) .b2
+          calcs: mul (sub .b0 .b1) .b2
+          constraints:
+            - var: b0
+              cal: mul (add 1 (digit .a0 10)) 10
+              wrongCals: mul (digit .a0 10) 10; mul (digit .a0 1) 10; mul (add (digit .a0 1) 1) 10; .a0; .a1; digit .a0 1; 10; 1; digit .a0 10; mul .a1 10
+            - var: b1
+              cal: sub 10 (digit .a0 1)
+              wrongCals: sub 10 (digit .a0 10); digit .a0 10; digit .a0 1; .a1; .a0; 10; 1
+            - var: b2
+              cal: .a1
+              wrongCals: .a0; add .a1 1; add .a1 -1; digit .a0 10; digit .a0 1
+        - template: Sub (Times .c0 .c2) (Times .c1 .c2)
+          calcs: sub (mul .c0 .c2) (mul .c1 .c2)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2
+        - template: Sub .d0 .d1
+          calcs: sub .d0 .d1
+          constraints:
+            - var: d0
+              cal: mul .c0 .c2
+              wrongCals: mul .c0 .c0; mul .c0 .c1; mul .c0 .c2; .c0; .c1; .c2; add .c0 .c2; add .c0 .c1; add .c1 .c2
+            - var: d1
+              cal: mul .c1 .c2
+              wrongCals: mul .c0 .c0; mul .c0 .c1; mul .c0 .c2; .c0; .c1; .c2; add .c0 .c2; add .c0 .c1; add .c1 .c2
+        - template: .e0
+          calcs: .e0
+          constraints:
+            - var: e0
+              cal: sub .d0 .d1
+              wrongCals: add .d0 .d1; .d0; .d1; mul .d0 .d1; add .d0 .d1 10; add .d0 .d1 1; add .d0 .d0; add .d1 .d1
+    w:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: a0
+              min: 2
+              max: 9
+            - var: a1
+              choices: 19;29;39;49;59;69;79;89;99;18;28;38;48;58;68;78;88;98
+        - template: Times .b0 (Sub .b1 .b2)
+          calcs: mul .b0 (sub .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; add .a0 1; add .a0 -1
+            - var: b1
+              cal: mul (add 1 (digit .a1 10)) 10
+              wrongCals: mul (digit .a1 10) 10; mul (digit .a1 1) 10; mul (add (digit .a1 1) 1) 10
+            - var: b2
+              cal: sub 10 (digit .a1 1)
+              wrongCals: sub 10 (digit .a1 10); digit .a1 10; digit .a1 1; .a1; .a0; 10; 1
+        - template: Sub (Times .c0 .c1) (Times .c0 .c2)
+          calcs: sub (mul .c0 .c1) (mul .c0 .c2)
+          constraints:
+            - var: c0
+              cal: .b0
+              wrongCals: .b0; .b1; .b2
+            - var: c1
+              cal: .b1
+              wrongCals: .b0; .b1; .b2
+            - var: c2
+              cal: .b2
+              wrongCals: .b0; .b1; .b2
+        - template: Sub .d0 .d1
+          calcs: sub .d0 .d1
+          constraints:
+            - var: d0
+              cal: mul .c0 .c1
+              wrongCals: mul .c0 .c0; mul .c0 .c1; mul .c0 .c2; .c0; .c1; .c2; add .c0 .c2; add .c0 .c1; add .c1 .c2
+            - var: d1
+              cal: mul .c0 .c2
+              wrongCals: mul .c0 .c0; mul .c0 .c1; mul .c0 .c2; .c0; .c1; .c2; add .c0 .c2; add .c0 .c1; add .c1 .c2
+        - template: .e0
+          calcs: .e0
+          constraints:
+            - var: e0
+              cal: sub .d0 .d1
+              wrongCals: add .d0 .d1; .d0; .d1; mul .d0 .d1; add .d0 .d1 10; add .d0 .d1 1; add .d0 .d0; add .d1 .d1

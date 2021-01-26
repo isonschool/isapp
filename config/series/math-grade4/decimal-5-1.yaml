@@ -1,0 +1,47 @@
+sampleTex: '6 \div 0.2 = 30'
+mth:
+  generators:
+    z:
+      expressions:
+        # .a0(=.h0*.h2) \div .a1(=.h0/.h1) = .h2*.h1
+        - template: Div .a0 .a1
+          calcs: div .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: h1
+              choices: 10;100
+            - var: h2
+              min: 1
+              max: 9
+            - var: a1
+              cal: div .h0 .h1
+            - var: a0
+              cal: mul .h0 .h2
+        - template: Div (WithPar (Times .b0 .b2)) (WithPar (Times .b1 .b2))
+          calcs: div (mul .b0 .b2) (mul .b1 .b2)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .h0; .h1; .h2; .a1; .a0; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 10
+            - var: b1
+              cal: .a1
+              wrongCals: .h0; .h1; .h2; .a1; .a0; mul .h0 .a1; mul .h1 .a0; mul .h1 .a1; mul .h0 .h1 .a0; mul .h0 .h1 .a1; add .h0 .a1; 1; 10
+            - var: b2
+              cal: .h1
+        - template: Div .c0 .c1
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b0 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 0.1; 0.01
+            - var: c1
+              cal: mul .b1 .b2
+              wrongCals: .b0; .b1; .b2; mul .b0 .b1; mul .b0 .b2; mul .b1 .b2; 1; 0.1; 0.01
+        - template: .d0
+          calcs: .d0
+          constraints:
+            - var: d0
+              cal: div .c0 .c1
+              wrongCals: .c0; .c1; mul .c0 .c1; add .c0 .c1; 1; 10; 0.1

@@ -1,0 +1,56 @@
+sampleTex: '2 \div 10 = 0.2'
+maxWidth: 109
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Div .a0 .a1
+          calcs: divf .a0 .a1
+          constraints:
+            - var: a0
+              min: 1
+              max: 9
+            - var: a1
+              choices: 10;100;1000
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: divf .a0 .a1
+              wrongCals: .a0; divf .a0 10; divf .a0 100; divf .a0 1000; 0.1; 0.2; 0.3; 0.01; 0.02; 0.03; 0.001; 0.002; 0.003
+    w:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a0
+              choices: 10;100;1000
+            - var: a1
+              cal: divf .h0 .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .a0; add 1 .h0; add -1 .h0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9
+    u:
+      expressions:
+        - template: Times .a0 .a1
+          calcs: mul .a0 .a1
+          constraints:
+            - var: h0
+              min: 1
+              max: 9
+            - var: a1
+              choices: 10;100;1000
+            - var: a0
+              cal: divf .h0 .a1
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: .h0
+              wrongCals: .a0; add 1 .h0; add -1 .h0; .a1; 1; 2; 3; 4; 5; 6; 7; 8; 9

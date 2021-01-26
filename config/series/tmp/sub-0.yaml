@@ -1,0 +1,24 @@
+skey: sub-0
+pkey: p023
+sname: "{Subtraction} 1"
+sampleTex: 7-2=5
+maxWidth:
+mth:
+  generators:
+    z:
+      expressions:
+        - template: Sub .a0 .a1
+          calcs: sub .a0 .a1
+          constraints:
+            - var: a0
+              min: 2
+              max: 9
+            - var: a1
+              min: 0
+              max: .a0
+        - template: .b0
+          calcs: .b0
+          constraints:
+            - var: b0
+              cal: sub .a0 .a1
+              wrongCals: 1;2;3;4;5;6;7;8

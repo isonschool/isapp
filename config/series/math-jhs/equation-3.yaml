@@ -1,0 +1,62 @@
+sampleTex: '\frac{1}{2}x=6 \Leftrightarrow x=12'
+maxWidth: 273
+mth:
+  relationTex: '\Leftrightarrow'
+  generators:
+    z:
+      expressions:
+        - template: Equal (Mul (Frac .a0 .a1) 'x') (Frac .a2 .a3)
+          calcs: div (mul .a2 .a1) (mul .a3 .a0)
+          constraints:
+            - var: a0
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a1
+              min: 1
+              max: 10
+              pred: == 1 (gcd .a0 .this)
+            - var: a2
+              min: -10
+              max: 10
+              excepts: 0
+            - var: a3
+              min: 1
+              max: 10
+              pred: == 1 (gcd .a2 .this)
+        - template: Equal (Times (Mul (Frac .b0 .b1) 'x') (Frac .b4 .b5)) (Times (Frac .b2 .b3) (Frac .b6 .b7))
+          calcs: div (mul .b2 .b1 .b5 .b6) (mul .b3 .b0 .b4 .b7)
+          constraints:
+            - var: b0
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b1
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b2
+              cal: .a2
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b3
+              cal: .a3
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b4
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b5
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b6
+              cal: .a1
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+            - var: b7
+              cal: .a0
+              wrongCals: .a0; .a1; .a2; .a3; mul -1 .a0; mul -1 .a1; mul -1 .a2; mul -1 .a3; 2; -2; 1; -1
+        - template: Equal 'x' (Frac .c0 .c1)
+          calcs: div .c0 .c1
+          constraints:
+            - var: c0
+              cal: mul .b2 .b1 .b5 .b6
+              wrongCals: 1; -1; 2; -2; mul -1 .b2 .b1 .b5 .b6; .b0; .b1; .b2; .b3; .b4; .b5; .b6; mul .b2 .b1; mul .b2 .b1 .b5; mul .b2 .b1 .b5 .b6; mul .b3 .b0; mul .b3 .b0 .b4; mul .b3 .b0 .b4 .b7
+            - var: c1
+              cal: mul .b3 .b0 .b4 .b7
+              wrongCals: 1; -1; 2; -2; mul -1 .b2 .b1 .b5 .b6; .b0; .b1; .b2; .b3; .b4; .b5; .b6; mul .b2 .b1; mul .b2 .b1 .b5; mul .b2 .b1 .b5 .b6; mul .b3 .b0; mul .b3 .b0 .b4; mul .b3 .b0 .b4 .b7
